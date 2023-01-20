@@ -30,17 +30,11 @@ Table 4 and Table 5: Table.R
 
 ### Result
 
-Two-part Gamma model under MNAR Assumptions 3/4/5:
+Two-part Gamma model under MNAR Assumptions 3/4/5: II_Job_Gamma.xlsx/III_Job_Gamma.xlsx/IV_Job_Gamma.xlsx
 
-II_Job_Gamma.xlsx/III_Job_Gamma.xlsx/IV_Job_Gamma.xlsx
+Two-part log-normal model under MNAR Assumptions 3/4/5: II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx
 
-Two-part log-normal model under MNAR Assumptions 3/4/5:
-
-II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx
-
-Data analysis results from two-part Gamma model under MNAR Assumptions 3:
-
-II_Job_Gamma.xlsx/II_Job_Gamma_B_Param.xlsx/II_Job_Gamma_B.xlsx
+Data analysis results from two-part Gamma model under MNAR Assumptions 3: II_Job_Gamma.xlsx/II_Job_Gamma_B_Param.xlsx/II_Job_Gamma_B.xlsx
 
 Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+5:
 
