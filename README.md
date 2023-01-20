@@ -18,25 +18,15 @@ Create the analysis dataset (Jobcorpdata.csv): Jobcrop.R
 
 Two-part Gamma model under MNAR Assumptions 3/4/5: II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R 
 
-Two-part log-normal model under MNAR Assumptions 3/4/5:
+Two-part log-normal model under MNAR Assumptions 3/4/5: II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R 
 
-II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R 
+Data analysis results from two-part Gamma model under MNAR Assumptions 3: II_Job_Gamma.R/II_Job_Gamma_B.R
 
-Data analysis results from two-part Gamma model under MNAR Assumptions 3:
+Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+5: II_Job_Gamma_S_IV.R/II_Job_Gamma_S_B_IV.R
 
-II_Job_Gamma.R/II_Job_Gamma_B.R
+Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+4+5: II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R
 
-Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+5:
-
-II_Job_Gamma_S_IV.R/II_Job_Gamma_S_B_IV.R
-
-Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+4+5:
-
-II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R
-
-Table 4 and Table 5:
-
-Table.R
+Table 4 and Table 5: Table.R
 
 ### Result
 
@@ -100,15 +90,11 @@ Setting D, continuous M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y
 
 CMBY_I.R/CMBY_II.R/CMBY_III.R/CMBY_IV.R and CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
 
-Figure 4 and Figure 5:
-
-Figures.R
+Figure 4 and Figure 5: Figures.R
 
 ### Result
 
 Simulation results (.xlsx) with the same filenames as the corresponding codes.
 
-Figure 4 and Figure 5:
-
-SimF1.png and SimF2.png
+Figure 4 and Figure 5: SimF1.png and SimF2.png
 
