@@ -2,7 +2,7 @@
 
 # Author Contributions Checklist Form
 
-## Data Analysis (National Job Corps Study)
+## National Job Corps Study
 
 ### Abstract 
 
