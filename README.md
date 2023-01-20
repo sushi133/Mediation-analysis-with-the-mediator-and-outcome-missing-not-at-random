@@ -14,6 +14,10 @@ Jobcorpdata.csv
 
 ### Code
 
+Create the analysis dataset (Jobcorpdata.csv):
+
+Jobcrop.R
+
 Two-part Gamma model under MNAR Assumptions 3/4/5:
 
 II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R 
