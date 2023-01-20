@@ -10,8 +10,6 @@ The data describes 8707 eligible applicants in the mid-1990s who lived in the ar
 
 ### Data
 
-Data is available:
-
 Jobcorpdata.csv
 
 ### Code
