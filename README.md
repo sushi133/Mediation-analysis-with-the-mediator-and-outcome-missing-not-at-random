@@ -26,13 +26,39 @@ II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R (sensitivity analysis results 
 
 ### Result
 
-II_Job_Gamma.xlsx/III_Job_Gamma.xlsx/IV_Job_Gamma.xlsx (two-part Gamma model under MNAR Assumptions 3/4/5)
+Two-part Gamma model under MNAR Assumptions 3/4/5:
 
-II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx (two-part log-normal model under MNAR Assumptions 3/4/5)
+II_Job_Gamma.xlsx/III_Job_Gamma.xlsx/IV_Job_Gamma.xlsx
 
-II_Job_Gamma.xlsx/II_Job_Gamma_B_Param.xlsx/II_Job_Gamma_B.xlsx (data analysis results from two-part Gamma model under MNAR Assumptions 3)
+Two-part log-normal model under MNAR Assumptions 3/4/5:
 
-II_Job_Gamma_S_-2_0.xlsx/II_Job_Gamma_S_B_-2_0.xlsx/II_Job_Gamma_S_0_0.xlsx/II_Job_Gamma_S_B_0_0.xlsx/II_Job_Gamma_S_2_0.xlsx/II_Job_Gamma_S_B_2_0.xlsx (sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+5) 
+II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx
+
+Data analysis results from two-part Gamma model under MNAR Assumptions 3:
+
+II_Job_Gamma.xlsx/II_Job_Gamma_B_Param.xlsx/II_Job_Gamma_B.xlsx
+
+Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+5:
+
+II_Job_Gamma_S_-2_0.xlsx/II_Job_Gamma_S_B_-2_0_Param.xlsx/II_Job_Gamma_S_B_-2_0.xlsx
+
+II_Job_Gamma_S_0_0.xlsx/II_Job_Gamma_S_B_0_0_Param.xlsx/II_Job_Gamma_S_B_0_0.xlsx
+
+II_Job_Gamma_S_2_0.xlsx/II_Job_Gamma_S_B_2_0_Param.xlsx/II_Job_Gamma_S_B_2_0.xlsx 
+
+Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+4+5: 
+
+II_Job_Gamma_S_-2_-2.xlsx/II_Job_Gamma_S_B_-2_-2_Param.xlsx/II_Job_Gamma_S_B_-2_-2.xlsx
+
+II_Job_Gamma_S_0_-2.xlsx/II_Job_Gamma_S_B_0_-2_Param.xlsx/II_Job_Gamma_S_B_0_-2.xlsx
+
+II_Job_Gamma_S_2_-2.xlsx/II_Job_Gamma_S_B_2_-2_Param.xlsx/II_Job_Gamma_S_B_2_-2.xlsx
+
+II_Job_Gamma_S_-2_2.xlsx/II_Job_Gamma_S_B_-2_2_Param.xlsx/II_Job_Gamma_S_B_-2_2.xlsx
+
+II_Job_Gamma_S_0_2.xlsx/II_Job_Gamma_S_B_0_2_Param.xlsx/II_Job_Gamma_S_B_0_2.xlsx
+
+II_Job_Gamma_S_2_2.xlsx/II_Job_Gamma_S_B_2_2_Param.xlsx/II_Job_Gamma_S_B_2_2.xlsx
 
 
 ## Simulation
