@@ -97,3 +97,15 @@ Setting D, continuous M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y
 
 CMBY_I.R/CMBY_II.R/CMBY_III.R/CMBY_IV.R and CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
 
+Figure 4 and Figure 5:
+
+Figures.R
+
+### Result
+
+Simulation results (.xlsx) with the same filenames as the corresponding codes.
+
+Figure 4 and Figure 5:
+
+SimF1.png and SimF2.png
+
