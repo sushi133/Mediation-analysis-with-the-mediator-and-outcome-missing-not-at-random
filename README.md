@@ -2,7 +2,7 @@
 
 # Author Contributions Checklist Form
 
-## Data
+## Data Analysis
 
 ### Abstract 
 
@@ -12,7 +12,11 @@ The data describes 8707 eligible applicants in the mid-1990s who lived in the ar
 
 Data is available.
 
-## Code
+### Code
+
+
+
+## Simulation
 
 This folder contains all necessary files to fit the binomial regression model with spatio-temporal uncertainty described in Heaton et al (2019).  The contents of this folder are as follows:
 
