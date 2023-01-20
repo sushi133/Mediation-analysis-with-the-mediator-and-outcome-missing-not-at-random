@@ -10,7 +10,7 @@ The data describes 8707 eligible applicants in the mid-1990s who lived in the ar
 
 ### Availability 
 
-As per our contract with the Department of Defense, the data cannot be made publicly available because of the sensitivity of the information.
+Data is available.
 
 ### Simulated data
 
