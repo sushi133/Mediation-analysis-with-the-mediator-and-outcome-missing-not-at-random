@@ -1,4 +1,4 @@
-# Modeling Bronchiolitis Incidence Proportions in the Presence of Spatio-Temporal Uncertainty
+# Mediation analysis with the mediator and outcome missing not at random
 
 # Author Contributions Checklist Form
 
@@ -6,7 +6,7 @@
 
 ### Abstract 
 
-This research analyzes medical claims data between 2003-2013 from the Department of Defense (DoD) Military Health System for children less than one year of age.  The information include the birthdate and location of each child and, in applicable, the time at which the child contracted bronchiolitis.  To ensure patient confidentiality, all dates and locations have been randomized to within a certain distance (the randomization amount is required to remain confidential) of the “true” date or location.
+The data describes 8707 eligible applicants in the mid-1990s who lived in the areas selected for in-person interviews at the baseline. The subjects were randomized either to the experimental group where they could join the Job Corps program soon after randomization, or to the control group where they were not provided the Job Corps program for three years. The mediator was collected at the 30-months follow-up describing subject’s educational and vocational attainment, measured by whether or not the subject obtained an education credential or vocational certificate after randomization. The outcome was collected at the 48-months follow-up describing the subject’s weekly earnings in the fourth year after randomization. The measured covariates include information on gender, age, race, education level, earnings in the year before participating in the study, whether the subject had a child or not, and whether the subject had ever been arrested or not.
 
 ### Availability 
 
