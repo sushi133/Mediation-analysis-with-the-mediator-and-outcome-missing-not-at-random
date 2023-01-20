@@ -14,16 +14,27 @@ Data is available.
 
 ### Code
 
-II_Job_Gamma.R (Two-part Gamma model under MNAR Assumptions 3)
+II_Job_Gamma.R (two-part Gamma model under MNAR Assumptions 3)
 
-III_Job_Gamma.R (Two-part Gamma model under MNAR Assumptions 4)
-IV_Job_Gamma.R (Two-part Gamma model under MNAR Assumptions 5)
+III_Job_Gamma.R (two-part Gamma model under MNAR Assumptions 4)
 
-II_Job_Lnorm.R (Two-part log-normal model under MNAR Assumptions 3)
-III_Job_Lnorm.R (Two-part log-normal model under MNAR Assumptions 4)
-IV_Job_Lnorm.R (Two-part log-normal model under MNAR Assumptions 5)
+IV_Job_Gamma.R (two-part Gamma model under MNAR Assumptions 5)
 
-II_Job_Gamma_B.R (Data analysis results from the Gamma model under MNAR Assumption 3)
+II_Job_Lnorm.R (two-part log-normal model under MNAR Assumptions 3)
+
+III_Job_Lnorm.R (two-part log-normal model under MNAR Assumptions 4)
+
+IV_Job_Lnorm.R (two-part log-normal model under MNAR Assumptions 5)
+
+II_Job_Gamma_B.R (standard error and confidence interval based on 500 bootstrap samples from two-part Gamma model under MNAR Assumptions 3)
+
+II_Job_Gamma_S_IV.R (sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+5)
+
+II_Job_Gamma_S_B_IV.R (confidence interval based on 500 bootstrap samples from two-part Gamma model under MNAR Assumptions 3+5)
+
+II_Job_Gamma_S_III+IV.R (sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+4+5)
+
+II_Job_Gamma_S_B_III+IV.R (confidence interval based on 500 bootstrap samples from two-part Gamma model under MNAR Assumptions 3+4+5)
 
 
 ## Simulation
