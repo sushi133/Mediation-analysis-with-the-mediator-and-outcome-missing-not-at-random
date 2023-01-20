@@ -79,6 +79,9 @@ II_Job_Gamma_S_2_2.xlsx/II_Job_Gamma_S_B_2_2_Param.xlsx/II_Job_Gamma_S_B_2_2.xls
 
 ### Abstract 
 
+We considered a sample size of 1000, and simulated 500 data sets for each simulation scenario. We applied the following three methods to compare their results on the estimations of the NIE and NDE: 1) complete case analysis, which provides consistent estimates under
+MCAR; 2) our proposed methods using the Expectation-Maximization algorithm, which are designed to deal with the MNAR assumptions under concern; and 3) oracle estimators, which are obtained by using the true values of the missing data.
+
 ### Code
 
 Setting A, binary M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
