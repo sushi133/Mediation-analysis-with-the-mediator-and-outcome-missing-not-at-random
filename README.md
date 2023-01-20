@@ -14,17 +14,9 @@ Data is available.
 
 ### Code
 
-II_Job_Gamma.R (two-part Gamma model under MNAR Assumptions 3)
+II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R (two-part Gamma model under MNAR Assumptions 3/4/5)
 
-III_Job_Gamma.R (two-part Gamma model under MNAR Assumptions 4)
-
-IV_Job_Gamma.R (two-part Gamma model under MNAR Assumptions 5)
-
-II_Job_Lnorm.R (two-part log-normal model under MNAR Assumptions 3)
-
-III_Job_Lnorm.R (two-part log-normal model under MNAR Assumptions 4)
-
-IV_Job_Lnorm.R (two-part log-normal model under MNAR Assumptions 5)
+II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R (two-part log-normal model under MNAR Assumptions 3/4/5)
 
 II_Job_Gamma_B.R (standard error and confidence interval based on 500 bootstrap samples from two-part Gamma model under MNAR Assumptions 3)
 
