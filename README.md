@@ -14,18 +14,9 @@ Data is available.
 
 ### Code
 
-We compared the performance and results using two-part Gamma and two-part log-normal models for the outcome under MNAR Assumptions 3, 4 and 5. Table 3 presents the loglikelihoods evaluated at the MLEs for those six models.
+We compared the performance and results using two-part Gamma and two-part log-normal models for the outcome under MNAR Assumptions 3, 4 and 5. Table 3 presents the loglikelihoods evaluated at the MLEs for those six models. (II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R/II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R)
 
-II_Job_Gamma.R
-III_Job_Gamma.R
-IV_Job_Gamma.R
-II_Job_Lnorm.R
-III_Job_Lnorm.R
-IV_Job_Lnorm.R. 
-
-Data analysis results from the Gamma model under MNAR Assumption 3.
-
-II_Job_Gamma_B.R
+Data analysis results from the Gamma model under MNAR Assumption 3. (II_Job_Gamma_B.R)
 
 
 ## Simulation
