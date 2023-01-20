@@ -32,6 +32,9 @@ II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx (two-part log-normal mode
 
 II_Job_Gamma.xlsx/II_Job_Gamma_B_Param.xlsx/II_Job_Gamma_B.xlsx (data analysis results from two-part Gamma model under MNAR Assumptions 3)
 
+II_Job_Gamma_S_-2_0.xlsx/II_Job_Gamma_S_B_-2_0.xlsx/II_Job_Gamma_S_0_0.xlsx/II_Job_Gamma_S_B_0_0.xlsx/II_Job_Gamma_S_2_0.xlsx/II_Job_Gamma_S_B_2_0.xlsx (sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+5) 
+
+
 ## Simulation
 
 This folder contains all necessary files to fit the binomial regression model with spatio-temporal uncertainty described in Heaton et al (2019).  The contents of this folder are as follows:
