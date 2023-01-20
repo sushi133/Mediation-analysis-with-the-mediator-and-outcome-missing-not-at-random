@@ -34,6 +34,10 @@ Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+
 
 II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R
 
+Table 4 and Table 5:
+
+Table.R
+
 ### Result
 
 Two-part Gamma model under MNAR Assumptions 3/4/5:
