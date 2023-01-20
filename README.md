@@ -14,7 +14,8 @@ Data is available.
 
 ### Code
 
-
+II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R/II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R to compared the performance and results using two-part Gamma and two-part log-normal models for the outcome under MNAR Assumptions 3, 4 and 5. The two-part Gamma
+model under MNAR Assumption 3 has the best performance based on the likelihood, II_Job_Gamma_B.R used to estimate the standard deviation and 95% confidence for the parameters. 
 
 ## Simulation
 
