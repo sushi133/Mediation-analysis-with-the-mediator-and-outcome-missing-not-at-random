@@ -85,7 +85,15 @@ Setting A, binary M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y are
 
 BMY_I.R/BMY_II.R/BMY_III.R/BMY_IV.R and BMY_I(0).R/BMY_II(0).R/BMY_III(0).R/BMY_IV(0).R
 
+Setting B, binary M and continuous Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
 
+BMCY_I.R/BMCY_II.R/BMCY_III.R/BMCY_IV.R and BMCY_I(0).R/BMCY_II(0).R/BMCY_III(0).R/BMCY_IV(0).R
 
+Setting C, continuous M and continuous Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
 
+CMY_I.R/CMY_II.R/CMY_III.R/CMY_IV.R and CMY_I(0).R/CMY_II(0).R/CMY_III(0).R/CMY_IV(0).R
+
+Setting D, continuous M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
+
+CMBY_I.R/CMBY_II.R/CMBY_III.R/CMBY_IV.R and CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
 
