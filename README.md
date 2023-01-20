@@ -12,10 +12,6 @@ The data describes 8707 eligible applicants in the mid-1990s who lived in the ar
 
 Data is available.
 
-### Simulated data
-
-The simulated data SimulatedCaseInfo.txt and SimulatedControlInfo.txt were both simulated using the posterior means of our model fit as the true parameters.  That is, we simulated (i) the number of children born according the a spatio-temporal point process with intensity Lambda in Section 2.2, (ii) simulated the number of cases according to the binomial model in Section 2.3 and (iii) jittered the data according to the jittering model described in Section 2.1.
-
 ## Code
 
 This folder contains all necessary files to fit the binomial regression model with spatio-temporal uncertainty described in Heaton et al (2019).  The contents of this folder are as follows:
