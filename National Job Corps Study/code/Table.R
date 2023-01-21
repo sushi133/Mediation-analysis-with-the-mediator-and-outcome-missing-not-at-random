@@ -1,0 +1,55 @@
+library(xlsx)
+library(scales)
+library(ggplot2)
+
+#data analysis
+D <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Data_Analysis/II_Job_Gamma.xlsx', 1)
+DB <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Data_Analysis/II_Job_Gamma_B.xlsx', 1)
+D<-rbind(D[64,],D[84,],D[103,],D[104,])
+DBT<-rbind(DB[64,],DB[84,],DB[103,],DB[104,])
+DBT1<-as.data.frame(cbind(D[,1],DBT[,c(2,3,4)],D[,2],DBT[,c(6,7,8)]))
+round(DBT1,2)
+
+#sensitivity
+S_2_2 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_-2_-2.xlsx', 1)
+SB_2_2 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_B_-2_-2.xlsx', 1)
+S_20 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_-2_0.xlsx', 1)
+SB_20 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_B_-2_0.xlsx', 1)
+S_22 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_-2_2.xlsx', 1)
+SB_22 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_B_-2_2.xlsx', 1)
+
+S0_2 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_0_-2.xlsx', 1)
+SB0_2 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_B_0_-2.xlsx', 1)
+S00 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_0_0.xlsx', 1)
+SB00 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_B_0_0.xlsx', 1)
+S02 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_0_2.xlsx', 1)
+SB02 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_B_0_2.xlsx', 1)
+
+S2_2 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_2_-2.xlsx', 1)
+SB2_2 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_B_2_-2.xlsx', 1)
+S20 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_2_0.xlsx', 1)
+SB20 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_B_2_0.xlsx', 1)
+S22 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_2_2.xlsx', 1)
+SB22 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_B_2_2.xlsx', 1)
+
+TSR1<-cbind(-2, S_2_2[103,1],SB_2_2[103,c(3,4)],S_20[103,1],SB_20[103,c(3,4)],S_22[103,1],SB_22[103,c(3,4)])
+TSR2<-cbind(0, S0_2[103,1],SB0_2[103,c(3,4)],S00[103,1],SB00[103,c(3,4)],S02[103,1],SB02[103,c(3,4)])
+TSR3<-cbind(2, S2_2[103,1],SB2_2[103,c(3,4)],S20[103,1],SB20[103,c(3,4)],S22[103,1],SB22[103,c(3,4)])
+
+TSR4<-cbind(-2, S_2_2[104,1],SB_2_2[104,c(3,4)],S_20[104,1],SB_20[104,c(3,4)],S_22[104,1],SB_22[104,c(3,4)])
+TSR5<-cbind(0, S0_2[104,1],SB0_2[104,c(3,4)],S00[104,1],SB00[104,c(3,4)],S02[104,1],SB02[104,c(3,4)])
+TSR6<-cbind(2, S2_2[104,1],SB2_2[104,c(3,4)],S20[104,1],SB20[104,c(3,4)],S22[104,1],SB22[104,c(3,4)])
+
+colnames(TSR1) <- c("sens","est","lower","upper","est","lower","upper","est","lower","upper")
+colnames(TSR2) <- c("sens","est","lower","upper","est","lower","upper","est","lower","upper")
+colnames(TSR3) <- c("sens","est","lower","upper","est","lower","upper","est","lower","upper")
+colnames(TSR4) <- c("sens","est","lower","upper","est","lower","upper","est","lower","upper")
+colnames(TSR5) <- c("sens","est","lower","upper","est","lower","upper","est","lower","upper")
+colnames(TSR6) <- c("sens","est","lower","upper","est","lower","upper","est","lower","upper")
+
+tab<-round(as.data.frame(rbind(TSR1,TSR2,TSR3,TSR4,TSR5,TSR6)),2)
+colnames(tab) <- c("sens","est1","lower1","upper1","est2","lower2","upper2","est3","lower3","upper3")
+tab$estCI1 <- paste0(tab$est1," (",tab$lower1,", ",tab$upper1,")")
+tab$estCI2 <- paste0(tab$est2," (",tab$lower2,", ",tab$upper2,")")
+tab$estCI3 <- paste0(tab$est3," (",tab$lower3,", ",tab$upper3,")")
+subset(tab, select = c(sens,estCI1,estCI2,estCI3))
