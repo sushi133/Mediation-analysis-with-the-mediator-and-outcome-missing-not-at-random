@@ -17,7 +17,9 @@ Analysis data: Jobcorpdata.csv
 
 ### Code
 
-We used R version 4.1.3.
+We used R version 4.1.3. 
+
+Platform: x86_64-apple-darwin17.0 (64-bit)
 
 Create the analysis data (Jobcorpdata.csv): Jobcrop.R
 
@@ -64,7 +66,9 @@ MCAR; 2) our proposed methods using the Expectation-Maximization algorithm, whic
 
 ### Code
 
-We used R version 4.1.3.
+We used R version 4.1.3. 
+
+Platform: x86_64-apple-darwin17.0 (64-bit)
 
 Setting A, binary M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
 
