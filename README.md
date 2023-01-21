@@ -17,10 +17,6 @@ Analysis data: Jobcorpdata.csv
 
 ### Code
 
-We used R version 4.1.3. 
-
-Platform: x86_64-apple-darwin17.0 (64-bit)
-
 Create the analysis data (Jobcorpdata.csv): Jobcrop.R
 
 Two-part Gamma model under MNAR Assumptions 3/4/5: II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R 
@@ -65,10 +61,6 @@ We considered a sample size of 1000, and simulated 500 data sets for each simula
 MCAR; 2) our proposed methods using the Expectation-Maximization algorithm, which are designed to deal with the MNAR assumptions under concern; and 3) oracle estimators, which are obtained by using the true values of the missing data.
 
 ### Code
-
-We used R version 4.1.3. 
-
-Platform: x86_64-apple-darwin17.0 (64-bit)
 
 Setting A, binary M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
 
