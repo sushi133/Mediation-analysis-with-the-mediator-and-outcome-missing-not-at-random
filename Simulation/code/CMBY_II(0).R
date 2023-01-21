@@ -1,7 +1,6 @@
 library(tictoc)
 library(mice)
 library(dplyr)
-library(purrr)
 library(parallel)
 
 #E[Y(t,M(t))|X]
