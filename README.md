@@ -10,15 +10,14 @@ The data describes 8707 eligible applicants in the mid-1990s who lived in the ar
 
 ### Data 
 
-mpr_jobcorps_team5_nrw_upd_r_nositeid.dta
+Source data: mpr_jobcorps_team5_nrw_upd_r_nositeid.dta and key_vars.dta
 
-key_vars.dta
+Analysis data: Jobcorpdata.csv
 
-Jobcorpdata.csv
 
 ### Code
 
-Create the analysis dataset (Jobcorpdata.csv): Jobcrop.R
+Create the analysis data (Jobcorpdata.csv): Jobcrop.R
 
 Two-part Gamma model under MNAR Assumptions 3/4/5: II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R 
 
