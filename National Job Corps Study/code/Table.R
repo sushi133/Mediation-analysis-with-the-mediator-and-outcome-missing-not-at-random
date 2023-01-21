@@ -1,6 +1,4 @@
 library(xlsx)
-library(scales)
-library(ggplot2)
 
 #data analysis
 D <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Data_Analysis/II_Job_Gamma.xlsx', 1)

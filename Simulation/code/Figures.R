@@ -1,5 +1,4 @@
 library(xlsx)
-library(scales)
 library(ggplot2)
 
 #MNAR I
