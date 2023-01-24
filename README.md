@@ -19,9 +19,9 @@ Analysis data: Jobcorpdata.csv
 
 Create the analysis data (Jobcorpdata.csv): Jobcrop.R
 
-Two-part Gamma model under MNAR Assumptions 3/4/5: II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R 
+Two-part Gamma and log-normal model under MNAR Assumptions 3/4/5 (the log-likelihoods evaluated at the MLEs for those six models are calculated): 
 
-Two-part log-normal model under MNAR Assumptions 3/4/5: II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R 
+II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R and II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R
 
 Data analysis results from two-part Gamma model under MNAR Assumptions 3: II_Job_Gamma.R/II_Job_Gamma_B.R
 
