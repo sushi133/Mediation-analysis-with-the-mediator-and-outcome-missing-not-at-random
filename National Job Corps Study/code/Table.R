@@ -1,6 +1,16 @@
 library(xlsx)
 
-#data analysis
+#Model comparison: Log-likelihood (Table 3)
+Gamma_II<-read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Data_Analysis/II_Job_Gamma.xlsx', 1)
+Gamma_III<-read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Data_Analysis/III_Job_Gamma.xlsx', 1)
+Gamma_IV<-read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Data_Analysis/IV_Job_Gamma.xlsx', 1)
+Lognormal_II<-read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Data_Analysis/II_Job_Lnorm.xlsx', 1)
+Lognormal_III<-read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Data_Analysis/III_Job_Lnorm.xlsx', 1)
+Lognormal_IV<-read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Data_Analysis/IV_Job_Lnorm.xlsx', 1)
+LL<-as.data.frame(rbind(Gamma_II[107,2],Gamma_III[107,2],Gamma_IV[107,2],Lognormal_II[107,2],Lognormal_III[107,2],Lognormal_IV[107,2]))
+round(LL,2)
+
+#data analysis (Table 4)
 D <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Data_Analysis/II_Job_Gamma.xlsx', 1)
 DB <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Data_Analysis/II_Job_Gamma_B.xlsx', 1)
 D<-rbind(D[64,],D[84,],D[103,],D[104,])
@@ -8,7 +18,7 @@ DBT<-rbind(DB[64,],DB[84,],DB[103,],DB[104,])
 DBT1<-as.data.frame(cbind(D[,1],DBT[,c(2,3,4)],D[,2],DBT[,c(6,7,8)]))
 round(DBT1,2)
 
-#sensitivity
+#sensitivity (Table 5)
 S_2_2 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_-2_-2.xlsx', 1)
 SB_2_2 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_B_-2_-2.xlsx', 1)
 S_20 <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Sensitivity_Analysis/II_Job_Gamma_S_-2_0.xlsx', 1)

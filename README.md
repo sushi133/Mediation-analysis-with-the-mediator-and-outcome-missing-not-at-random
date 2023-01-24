@@ -29,7 +29,7 @@ Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+
 
 Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+4+5: II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R
 
-Table 4 and Table 5: Table.R
+Create Table 3, Table 4 and Table 5 from analysis results (.xlsx) in the output: Table.R
 
 ### Output
 
@@ -78,7 +78,7 @@ Setting D, continuous M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y
 
 CMBY_I.R/CMBY_II.R/CMBY_III.R/CMBY_IV.R and CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
 
-Figure 4 and Figure 5: Figures.R
+Create Figure 4 and Figure 5 from simulation results (.xlsx) in the output: Figures.R
 
 ### Output
 
