@@ -23,6 +23,8 @@ Analysis data: Jobcorpdata.csv
 
 Create the analysis data (Jobcorpdata.csv): Jobcrop.R
 
+Create Table 1 and any number provided in text in the paper: Addtional_Information.R
+
 Two-part Gamma and log-normal model under MNAR Assumptions 3/4/5 (the log-likelihoods evaluated at the MLEs for those six models are calculated): 
 
 II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R and II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R
