@@ -6,7 +6,7 @@ R packages: readstata13 (V 0.10.0), dplyr (V 1.0.8), mice (V 3.14.0), tictoc (V 
 
 All the analysis are conducted using the analysis data (Jobcorpdata.csv) created by Jobcrop.R.
 
-In Addtional_Information.R, we provide information including missingness patterns (Table 1), the percentages of subjects having the outcome Y observed among subjects with missing mediator values, portions of the missingness exist in covariates X, percentage of zero values of the earnings.
+In Addtional_Information.R, we provide information including missingness patterns (Table 1), the percentages of subjects having the outcome Y observed among subjects with missing mediator values, the portions of the missingness exist in covariates X, and the percentage of zero values of the earnings.
 
 In II_Job_Gamma_S_IV.R and II_Job_Gamma_S_B_IV.R, sensitivity parameter (gamma z) is 0, and set sensitivity parameter (gamma m) to vary among -2, 0 and 2.
 
