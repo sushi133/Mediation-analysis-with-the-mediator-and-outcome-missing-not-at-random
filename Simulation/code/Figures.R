@@ -264,7 +264,7 @@ MNAR <- rbind(MNAR_I,MNAR_II,MNAR_III,MNAR_IV)
 MNAR$label <- paste0(MNAR$method,'\n',MNAR$effect)
 MNAR$label <- factor(MNAR$label, levels=c("CC\nNIE","EM\nNIE","Oracle\nNIE","CC\nNDE","EM\nNDE","Oracle\nNDE"))
 ggplot(MNAR, aes(x=label, y=bias*100, color=method)) + geom_boxplot(outlier.shape = 1, outlier.color = NULL) +
-  stat_summary(fun="mean", shape=5, position = position_dodge2(width = 0.75, preserve = "single")) +
+  stat_summary(fun="mean", geom="point", shape=5, position = position_dodge2(width = 0.75, preserve = "single")) +
   labs(x = '', y = 'Bias (%)') +
   scale_color_manual(values = c("#0099f8","red3","green4")) +
   geom_hline(yintercept = 0, linetype="dashed") +
@@ -546,7 +546,7 @@ MNAR0<-rbind(MNAR0_I,MNAR0_II,MNAR0_III,MNAR0_IV)
 MNAR0$label <- paste0(MNAR0$method,'\n',MNAR0$effect)
 MNAR0$label <- factor(MNAR0$label, levels=c("CC\nNIE","EM\nNIE","Oracle\nNIE","CC\nNDE","EM\nNDE","Oracle\nNDE"))
 ggplot(MNAR0, aes(x=label, y=bias*100, color=method)) + geom_boxplot(outlier.shape = 1, outlier.color = NULL) +
-  stat_summary(fun="mean", shape=5, position = position_dodge2(width = 0.75, preserve = "single")) +
+  stat_summary(fun="mean", geom="point", shape=5, position = position_dodge2(width = 0.75, preserve = "single")) +
   labs(x = '', y = 'Bias (%)') +
   scale_color_manual(values = c("#0099f8","red3","green4")) +
   geom_hline(yintercept = 0, linetype="dashed") +
