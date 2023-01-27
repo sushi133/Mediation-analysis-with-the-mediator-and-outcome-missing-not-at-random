@@ -20,10 +20,11 @@ data$pattern<-rep(NA,dim(data)[1])
 data$pattern<-ifelse(data$R_m==0 & data$R_y==1,1,data$pattern)
 data$pattern<-ifelse(data$R_m==1 & data$R_y==0,2,data$pattern)
 data$pattern<-ifelse(data$R_m==0 & data$R_y==0,3,data$pattern)
+data$pattern<-ifelse(data$R_m==1 & data$R_y==1,4,data$pattern)
 
 data$pattern1<-rep(NA,dim(data)[1])
-data$pattern1<-ifelse(data$R_m==0 | data$R_y==0,4,data$pattern1)
-data$pattern1<-ifelse(data$R_m==1 & data$R_y==1,5,data$pattern1)
+data$pattern1<-ifelse(data$R_m==0 | data$R_y==0,5,data$pattern1)
+data$pattern1<-ifelse(data$R_m==1 & data$R_y==1,6,data$pattern1)
 
 #treatment
 tp1<-data %>%
@@ -44,7 +45,7 @@ tp3<-data %>%
   filter(Z==1) %>%
   summarise(n = n()) %>%
   mutate(freq = scales::percent(n/sum(n), accuracy = 0.01))
-tp3$pattern<-6
+tp3$pattern<-7
 
 tp<-rbind(tp1,tp2,tp3)
 
@@ -67,7 +68,7 @@ cp3<-data %>%
   filter(Z==0) %>%
   summarise(n = n()) %>%
   mutate(freq = scales::percent(n/sum(n), accuracy = 0.01))
-cp3$pattern<-6
+cp3$pattern<-7
 
 cp<-rbind(cp1,cp2,cp3)
 cp<-subset(cp,select=-c(pattern))
