@@ -178,7 +178,7 @@ while (sum(abs(Q[[k]]-Q[[k-1]]))/sum(Q[[k-1]])>=1e-5) {
   emb_t<-emm1$coef[3]
   emb_x<-emm1$coef[4]
   emb_mt<-emm1$coef[5]
-  emsd_y<-summary(emm1)$sigma
+  emsd_y<-sqrt(sum(dat$wt*(emm1$residuals)^2)/(sum(dat$wt)-emm1$rank))
   ema_0<-emm2$coef[1]
   ema_t<-emm2$coef[2]
   ema_x<-emm2$coef[3]

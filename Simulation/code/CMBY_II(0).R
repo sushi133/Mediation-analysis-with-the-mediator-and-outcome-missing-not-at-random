@@ -223,7 +223,7 @@ while (sum(abs(Q[[k]]-Q[[k-1]]))/sum(Q[[k-1]])>=0.01 & k < 100) {
   ema_0<-emm2$coef[1]
   ema_t<-emm2$coef[2]
   ema_x<-emm2$coef[3]
-  emsd_m<-summary(emm2)$sigma
+  emsd_m<-sqrt(sum(dat$wt*(emm2$residuals)^2)/(sum(dat$wt)-emm2$rank))
   emc_0<-emm3$coef[1]
   emc_m<-emm3$coef[2]
   emc_t<-emm3$coef[3]
