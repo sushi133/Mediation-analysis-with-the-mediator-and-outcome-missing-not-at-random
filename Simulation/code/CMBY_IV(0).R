@@ -125,15 +125,20 @@ mid_t<-mim4$estimate[3]
 mid_x<-mim4$estimate[4]
 
 #EM
+#fractional imputation for continuous var
 dat0<-subset(data,R_m==1 & R_y==1)
+dat0$seq<-0
 #missing m
 dat1<-subset(data,R_m==0 & R_y==1)
+dat1$seq<-1:nrow(dat1)
 dat1<-data.frame(lapply(dat1, rep, sample))
 dat1$m<-rnorm(as.numeric(count(dat1)),cca_0+cca_t*dat1$t+cca_x*dat1$x,psd_m)
 #missing y
 dat2<-subset(data,R_m==1 & R_y==0)
+dat2$seq<-0
 #missing m and y
 dat3<-subset(data,R_m==0 & R_y==0)
+dat3$seq<-1:nrow(dat3)
 dat3<-data.frame(lapply(dat3, rep, sample))
 dat3$m<-rnorm(as.numeric(count(dat3)),cca_0+cca_t*dat3$t+cca_x*dat3$x,psd_m)
 
@@ -156,59 +161,54 @@ emd_m<-mid_m
 emd_t<-mid_t
 emd_x<-mid_x
 
+#weight of m when y is observed
+cm_weight <- function(y,m,t,x){
+  #joint dist
+  p <- 
+    (exp(emb_0+emb_m*m+emb_t*t+emb_mt*m*t+emb_x*x)/(1+exp(emb_0+emb_m*m+emb_t*t+emb_mt*m*t+emb_x*x)))^I(y==1)*
+    (1/(1+exp(emb_0+emb_m*m+emb_t*t+emb_mt*m*t+emb_x*x)))^I(y==0)*
+    (1/(emsd_m*sqrt(2*pi)))*exp((-0.5*((m-(ema_0+ema_t*t+ema_x*x))/emsd_m)^2))*
+    (1/(1+exp(emc_0+emc_m*m+emc_t*t+emc_x*x)))*
+    (exp(emd_0+emd_m*m+emd_t*t+emd_x*x)/(1+exp(emd_0+emd_m*m+emd_t*t+emd_x*x)))
+  #proposed dist
+  h <- 
+    (1/(psd_m*sqrt(2*pi)))*exp((-0.5*((m-(cca_0+cca_t*t+cca_x*x))/psd_m)^2))
+  
+  return(p/h)
+}
+
+#weight of m when y is missing
+cmy_weight <- function(m,t,x){
+  #joint dist
+  p <- 
+    (1/(emsd_m*sqrt(2*pi)))*exp((-0.5*((m-(ema_0+ema_t*t+ema_x*x))/emsd_m)^2))*
+    (1/(1+exp(emc_0+emc_m*m+emc_t*t+emc_x*x)))*
+    (1/(1+exp(emd_0+emd_m*m+emd_t*t+emd_x*x)))
+  #proposed dist
+  h <- 
+    (1/(psd_m*sqrt(2*pi)))*exp((-0.5*((m-(cca_0+cca_t*t+cca_x*x))/psd_m)^2))
+  
+  return(p/h)
+}
+
 Q<-NULL
 Q[[1]] <- c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)  
 Q[[2]] <-c(emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x,emsd_m,emc_0,emc_m,emc_t,emc_x,emd_0,emd_m,emd_t,emd_x)
 k<-2
-while (sum(abs(Q[[k]]-Q[[k-1]]))/sum(Q[[k-1]])>=0.01 & k < 100) {
-  
+while (sum(abs(Q[[k]]-Q[[k-1]]))/sum(Q[[k-1]])>=1e-5) {
   
   dat0$wt<-1
   
   #missing m
-  cm_weight <- function(k1){
-    cp <- function(m){
-      cp <- 
-        (exp(emb_0+emb_m*m+emb_t*dat1[k1,]$t+emb_mt*m*dat1[k1,]$t+emb_x*dat1[k1,]$x)/(1+exp(emb_0+emb_m*m+emb_t*dat1[k1,]$t+emb_mt*m*dat1[k1,]$t+emb_x*dat1[k1,]$x)))^I(dat1[k1,]$y==1)*
-        (1/(1+exp(emb_0+emb_m*m+emb_t*dat1[k1,]$t+emb_mt*m*dat1[k1,]$t+emb_x*dat1[k1,]$x)))^I(dat1[k1,]$y==0)*
-        (1/(emsd_m*sqrt(2*pi)))*exp((-0.5*((m-(ema_0+ema_t*dat1[k1,]$t+ema_x*dat1[k1,]$x))/emsd_m)^2))*
-        (1/(1+exp(emc_0+emc_m*m+emc_t*dat1[k1,]$t+emc_x*dat1[k1,]$x)))*
-        (exp(emd_0+emd_m*m+emd_t*dat1[k1,]$t+emd_x*dat1[k1,]$x)/(1+exp(emd_0+emd_m*m+emd_t*dat1[k1,]$t+emd_x*dat1[k1,]$x)))
-      return(cp)
-    }
-    pp <- function(m){
-      pp <- 
-        (1/(psd_m*sqrt(2*pi)))*exp((-0.5*((m-(cca_0+cca_t*dat1[k1,]$t+cca_x*dat1[k1,]$x))/psd_m)^2))
-      return(pp)
-    }
-    #normalizing constant
-    ps <- rnorm(sample_const,cca_0+cca_t*dat1[k1,]$t+cca_x*dat1[k1,]$x,psd_m)
-    wt <- ((cp(dat1[k1,]$m)/pp(dat1[k1,]$m))/mean(cp(ps)/pp(ps)))/sample
-  }
-  dat1$wt<-as.numeric(unlist(lapply(1:as.numeric(dplyr::count(dat1)),FUN=cm_weight)))
+  dat1$wt<-cm_weight(dat1$y,dat1$m,dat1$t,dat1$x)
+  dat1<-dat1 %>% group_by(seq) %>% mutate(wt=wt/sum(wt))
   
   #missing y
   dat2$wt<-1
   
   #missing m and y
-  cmy_weight <- function(k3){
-    cp <- function(m){
-      cp <- 
-        (1/(emsd_m*sqrt(2*pi)))*exp((-0.5*((m-(ema_0+ema_t*dat3[k3,]$t+ema_x*dat3[k3,]$x))/emsd_m)^2))*
-        (1/(1+exp(emc_0+emc_m*m+emc_t*dat3[k3,]$t+emc_x*dat3[k3,]$x)))*
-        (1/(1+exp(emd_0+emd_m*m+emd_t*dat3[k3,]$t+emd_x*dat3[k3,]$x)))
-      return(cp)
-    }
-    pp <- function(m){
-      pp <- 
-        (1/(psd_m*sqrt(2*pi)))*exp((-0.5*((m-(cca_0+cca_t*dat3[k3,]$t+cca_x*dat3[k3,]$x))/psd_m)^2))
-      return(pp)
-    }
-    #normalizing constant
-    ps <- rnorm(sample_const,cca_0+cca_t*dat3[k3,]$t+cca_x*dat3[k3,]$x,psd_m)
-    wt <- ((cp(dat3[k3,]$m)/pp(dat3[k3,]$m))/mean(cp(ps)/pp(ps)))/sample
-  }
-  dat3$wt<-as.numeric(unlist(lapply(1:as.numeric(dplyr::count(dat3)),FUN=cmy_weight)))
+  dat3$wt<-cmy_weight(dat3$m,dat3$t,dat3$x)
+  dat3<-dat3 %>% group_by(seq) %>% mutate(wt=wt/sum(wt))
   
   dat<-rbind(dat0,dat1,dat2,dat3)
   
@@ -281,6 +281,7 @@ TDE<-mean(as.numeric(unlist(lapply(1:N,FUN=int11,data=data,b_0=b_0,b_m=b_m,b_t=b
 matrix(c(ta_0,cca_0,ema_0,
          ta_t,cca_t,ema_t,
          ta_x,cca_x,ema_x,
+         tsd_m,ccsd_m,emsd_m,
          tb_0,ccb_0,emb_0,
          tb_m,ccb_m,emb_m,
          tb_t,ccb_t,emb_t,
@@ -300,7 +301,8 @@ matrix(c(ta_0,cca_0,ema_0,
          (tTDE-TDE)/TDE,(ccTDE-TDE)/TDE,(emTDE-TDE)/TDE,
          miss_m,miss_m,miss_m,
          miss_y,miss_y,miss_y,
-         miss_my,miss_my,miss_my),byrow=T,23,3)
+         miss_my,miss_my,miss_my,
+         k,k,k),byrow=T,25,3)
 }
 
 
@@ -312,22 +314,21 @@ p_t<-0.5
 a_0<-0
 a_t<-1
 a_x<-1
-sd_m<-0.5
+sd_m<-1
 b_0<-0
 b_m<-0
-b_t<-2
+b_t<-1
 b_x<-1
 b_mt<-0
-c_0<-2
-c_m<-4
+c_0<-1.2
+c_m<-1
 c_t<-0.2
 c_x<-0.2
-d_0<-2
-d_m<--1
+d_0<-1.2
+d_m<-1
 d_t<-0.2
 d_x<-0.2
-sample<-20
-sample_const<-10000
+sample<-100
 psd_m<-1
 N_int<-10000
 

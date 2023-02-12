@@ -129,6 +129,7 @@ mid_t<-mim4$estimate[3]
 mid_x<-mim4$estimate[4]
   
 #EM
+#possible value for discrete var
 dat0<-subset(data,R_m==1 & R_y==1)
 dat1<-subset(data,R_m==0 & R_y==1)
 dat2<-subset(data,R_m==1 & R_y==0)
@@ -165,6 +166,7 @@ emd_m<-mid_m
 emd_t<-mid_t
 emd_x<-mid_x
   
+#weight of m when y is observed
 m_weight<-function(y,m,t,x){
     
   cond_prob_1<-
@@ -188,6 +190,7 @@ m_weight<-function(y,m,t,x){
   return(cond_prob/(cond_prob_1+cond_prob_0))
 }
   
+#weight of m when y is missing
 my_weight<-function(m,t,x){
     
   cond_prob_1<-
@@ -289,6 +292,7 @@ matrix(c(ta_0,cca_0,ema_0,
          tb_t,ccb_t,emb_t,
          tb_x,ccb_x,emb_x,
          tb_mt,ccb_mt,emb_mt,
+         tsd_y,ccsd_y,emsd_y,
          tc_0,ccc_0,emc_0,
          tc_m,ccc_m,emc_m,
          tc_t,ccc_t,emc_t,
@@ -303,7 +307,8 @@ matrix(c(ta_0,cca_0,ema_0,
          (tTDE-TDE)/TDE,(ccTDE-TDE)/TDE,(emTDE-TDE)/TDE,
          miss_m,miss_m,miss_m,
          miss_y,miss_y,miss_y,
-         miss_my,miss_my,miss_my),byrow=T,23,3)
+         miss_my,miss_my,miss_my,
+         k,k,k),byrow=T,25,3)
 }
 
 #parameter set up
@@ -316,10 +321,10 @@ a_t<-1
 a_x<-1
 b_0<-0
 b_m<-0
-b_t<-2
+b_t<-1
 b_x<-1
 b_mt<-0
-sd_y<-0.5
+sd_y<-1
 c_0<-0.2
 c_m<-2
 c_t<-0.2

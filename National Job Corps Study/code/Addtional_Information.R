@@ -21,11 +21,6 @@ data$pattern<-ifelse(data$R_m==0 & data$R_y==1,1,data$pattern)
 data$pattern<-ifelse(data$R_m==1 & data$R_y==0,2,data$pattern)
 data$pattern<-ifelse(data$R_m==0 & data$R_y==0,3,data$pattern)
 data$pattern<-ifelse(data$R_m==1 & data$R_y==1,4,data$pattern)
-
-data$pattern1<-rep(NA,dim(data)[1])
-data$pattern1<-ifelse(data$R_m==0 | data$R_y==0,5,data$pattern1)
-data$pattern1<-ifelse(data$R_m==1 & data$R_y==1,6,data$pattern1)
-
 #treatment
 tp1<-data %>%
   filter(Z==1) %>%
@@ -36,18 +31,11 @@ tp1<-na.omit(tp1)
 
 tp2<-data %>%
   filter(Z==1) %>%
-  group_by(pattern1) %>%
   summarise(n = n()) %>%
   mutate(freq = scales::percent(n/sum(n), accuracy = 0.01))
-colnames(tp2)[1] = "pattern"
+tp2$pattern<-5
 
-tp3<-data %>%
-  filter(Z==1) %>%
-  summarise(n = n()) %>%
-  mutate(freq = scales::percent(n/sum(n), accuracy = 0.01))
-tp3$pattern<-7
-
-tp<-rbind(tp1,tp2,tp3)
+tp<-rbind(tp1,tp2)
 
 #control
 cp1<-data %>%
@@ -59,18 +47,11 @@ cp1<-na.omit(cp1)
 
 cp2<-data %>%
   filter(Z==0) %>%
-  group_by(pattern1) %>%
   summarise(n = n()) %>%
   mutate(freq = scales::percent(n/sum(n), accuracy = 0.01))
-colnames(cp2)[1] = "pattern"
+cp2$pattern<-5
 
-cp3<-data %>%
-  filter(Z==0) %>%
-  summarise(n = n()) %>%
-  mutate(freq = scales::percent(n/sum(n), accuracy = 0.01))
-cp3$pattern<-7
-
-cp<-rbind(cp1,cp2,cp3)
+cp<-rbind(cp1,cp2)
 cp<-subset(cp,select=-c(pattern))
 
 #table 1 (combine treatment and control)

@@ -213,6 +213,7 @@ cca_x74<-ccm2$coef[18]
 cca_x75<-ccm2$coef[19]
 
 #EM
+#possible value for discrete var
 dat0<-subset(dat,R_m==1 & R_y==1)
 dat1<-subset(dat,R_m==0 & R_y==1)
 dat2<-subset(dat,R_m==1 & R_y==0)
@@ -355,6 +356,7 @@ emd_x75<-mid_x75
 sens_m<--2
 sens_y<-2
 
+#weight of m when y is observed
 m_weight<-function(Y,zero,M,Z,x1,x2,x3,x4,x5,x6,x7,R_m){
   
 cond_prob_1<-
@@ -388,6 +390,7 @@ cond_prob<-
   return(cond_prob/(cond_prob_1+cond_prob_0))
 }
 
+#weight of zero when m is observed
 y_weight<-function(zero,M,Z,x1,x2,x3,x4,x5,x6,x7,R_m){
   
 cond_prob_1<-
@@ -408,7 +411,7 @@ cond_prob<-
   return(cond_prob/(cond_prob_1+cond_prob_0))
 }
 
-
+#weight of (m,zero) when both are missing
 my_weight<-function(zero,M,Z,x1,x2,x3,x4,x5,x6,x7,R_m){
   
 cond_prob_10<-
@@ -478,6 +481,7 @@ while (sum(abs(Q[[k]]-Q[[k-1]]))/sum(Q[[k-1]])>=1e-5) {
   
   #update parameters
   emm11<-glm(zero~M+Z+M*Z+x1+x2+x3+x4+x5+x6+x7,family = binomial(link='logit'),weights=wt,data=dat)
+  #conditional on I(Y>0) and M, Y model can be identified by complete cases
   emm1<-glm(Y~M+Z+M*Z+x1+x2+x3+x4+x5+x6+x7,family = Gamma(link = "log"),weights=wt,data=dat,subset=(zero==1 & R_y==1 & R_m==1))
   emm2<-glm(M~Z+x1+x2+x3+x4+x5+x6+x7,family = binomial(link='logit'),weights=wt,data=dat)
   emm3<-glm(R_m~M+Z+x1+x2+x3+x4+x5+x6+x7,family = binomial(link='logit'),weights=wt,data=dat)

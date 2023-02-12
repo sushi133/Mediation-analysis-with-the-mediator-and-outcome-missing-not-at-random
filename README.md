@@ -23,9 +23,9 @@ Analysis data: Jobcorpdata.csv
 
 Create the analysis data (Jobcorpdata.csv): Jobcrop.R
 
-Create Table 1 and any number provided in text in the paper: Addtional_Information.R
+Table 1 (missingness patterns) and any additional information provided in the manuscript: Addtional_Information.R
 
-Two-part Gamma and log-normal model under MNAR Assumptions 3/4/5 (the log-likelihoods evaluated at the MLEs for those six models are calculated): 
+Two-part Gamma and Two-part log-normal model under MNAR Assumptions 3/4/5 (the log-likelihoods evaluated at the MLEs for those six models are calculated): 
 
 II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R and II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R
 
@@ -35,13 +35,11 @@ Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+
 
 Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+4+5: II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R
 
-Create Table 3, Table 4 and Table 5 from analysis results (.xlsx) in the output: Table.R
+Table 3, Table 4 and Table 5 in the manuscript: Table.R
 
 ### Output
 
-Two-part Gamma model under MNAR Assumptions 3/4/5: II_Job_Gamma.xlsx/III_Job_Gamma.xlsx/IV_Job_Gamma.xlsx
-
-Two-part log-normal model under MNAR Assumptions 3/4/5: II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx
+Two-part Gamma and Two-part log-normal model under MNAR Assumptions 3/4/5: II_Job_Gamma.xlsx/III_Job_Gamma.xlsx/IV_Job_Gamma.xlsx/II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx
 
 Data analysis results from two-part Gamma model under MNAR Assumptions 3: II_Job_Gamma.xlsx/II_Job_Gamma_B_Param.xlsx/II_Job_Gamma_B.xlsx
 
@@ -84,11 +82,15 @@ Setting D, continuous M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y
 
 CMBY_I.R/CMBY_II.R/CMBY_III.R/CMBY_IV.R and CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
 
-Create Figure 4 and Figure 5 from simulation results (.xlsx) in the output: Figures.R
+Create Figure 4 and Figure 5 in the manuscript: Figures.R
 
 ### Output
 
 Simulation results (.xlsx) with the same filenames as the corresponding codes.
 
 Figure 4 and Figure 5: SimF1.png and SimF2.png
+
+## Simulation_v2
+
+The outcome model is identifiable using the complete cases under MNAR Assumption 2, 3 and 5. Therefore, an alternative approach (Simulation_v2) for those scenarios is to estimate the outcome model first using the complete cases, then estimate the parameters in other models through the Expectation-Maximization algorithm by plugging in the estimated outcome model. We tried those two slightly different approaches to our simulation settings, both provided consistent results, with the alternative approach enjoying higher computation efficiency as expected. However, under MNAR Assumption 4, the alternative approach does not work because the outcome distribution P(Y | M, T, X) can not be identified by the complete cases.
 

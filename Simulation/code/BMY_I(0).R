@@ -108,6 +108,7 @@ mic_t<-mim3$estimate[3]
 mic_x<-mim3$estimate[4] 
 
 #EM
+#possible value for discrete var
 dat0<-subset(data,R_m==1)
 dat1<-subset(data,R_m==0)
 #missing m
@@ -132,6 +133,7 @@ emc_m<-mic_m
 emc_t<-mic_t
 emc_x<-mic_x
 
+#weight of m when y is observed
 m_weight<-function(y,m,t,x){
   
   cond_prob_1<-
@@ -228,7 +230,8 @@ matrix(c(ta_0,cca_0,ema_0,
          (tPDE-PDE)/PDE,(ccPDE-PDE)/PDE,(emPDE-PDE)/PDE,
          (tPIE-PIE)/TDE,(ccPIE-PIE)/TDE,(emPIE-PIE)/TDE,
          (tTDE-TDE)/TDE,(ccTDE-TDE)/TDE,(emTDE-TDE)/TDE,
-         miss_m,miss_m,miss_m),byrow=T,17,3)
+         miss_m,miss_m,miss_m,
+         k,k,k),byrow=T,18,3)
 }
 
 #parameter set up
@@ -241,7 +244,7 @@ a_t<-1
 a_x<-1
 b_0<-0
 b_m<-0
-b_t<-2
+b_t<-1
 b_x<-1
 b_mt<-0
 c_0<-0.2

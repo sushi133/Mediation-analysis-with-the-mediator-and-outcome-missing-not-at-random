@@ -108,6 +108,7 @@ mic_t<-mim3$estimate[3]
 mic_x<-mim3$estimate[4] 
 
 #EM
+#possible value for discrete var
 dat0<-subset(data,R_m==1)
 dat1<-subset(data,R_m==0)
 #missing m
@@ -133,6 +134,7 @@ emc_m<-mic_m
 emc_t<-mic_t
 emc_x<-mic_x
 
+#weight of m when y is observed
 m_weight<-function(y,m,t,x){
 
 cond_prob_1<-
@@ -172,7 +174,6 @@ while (sum(abs(Q[[k]]-Q[[k-1]]))/sum(Q[[k-1]])>=1e-5) {
   emm1<-lm(y~m+t+m*t+x,weights=wt,data=dat)
   emm2<-glm(m~t+x,family = binomial(link='logit'),weights=wt,data=dat)
   emm3<-glm(R_m~m+t+x,family = binomial(link='logit'),weights=wt,data=dat)
-
   emb_0<-emm1$coef[1]
   emb_m<-emm1$coef[2]
   emb_t<-emm1$coef[3]
@@ -221,6 +222,7 @@ matrix(c(ta_0,cca_0,ema_0,
          tb_t,ccb_t,emb_t,
          tb_x,ccb_x,emb_x,
          tb_mt,ccb_mt,emb_mt,
+         tsd_y,ccsd_y,emsd_y,
          tc_0,ccc_0,emc_0,
          tc_m,ccc_m,emc_m,
          tc_t,ccc_t,emc_t,
@@ -229,7 +231,8 @@ matrix(c(ta_0,cca_0,ema_0,
          (tPDE-PDE)/PDE,(ccPDE-PDE)/PDE,(emPDE-PDE)/PDE,
          (tPIE-PIE)/TDE,(ccPIE-PIE)/TDE,(emPIE-PIE)/TDE,
          (tTDE-TDE)/TDE,(ccTDE-TDE)/TDE,(emTDE-TDE)/TDE,
-         miss_m,miss_m,miss_m),byrow=T,17,3)
+         miss_m,miss_m,miss_m,
+         k,k,k),byrow=T,19,3)
 
 }
 
@@ -243,10 +246,10 @@ a_t<-1
 a_x<-1
 b_0<-0
 b_m<-0
-b_t<-2
+b_t<-1
 b_x<-1
 b_mt<-0
-sd_y<-0.5
+sd_y<-1
 c_0<-0.2
 c_m<-2
 c_t<-0.2
@@ -263,5 +266,6 @@ toc()
 
 library("xlsx")
 write.xlsx(save,'/Users/sushi5824907/Desktop/Mediation/JASA/Simulation/BMCY_I(0).xlsx',row.names = FALSE)
+
 
 
