@@ -78,7 +78,7 @@ data$x4<-as.factor(data$x4)
 data$x5<-as.factor(data$x5)
 data$x6<-as.factor(data$x6)
 data$x7<-as.factor(data$x7)
-#indicator for outcome when it is 0
+#indicator for outcome I(Y>0)
 data$zero<-ifelse(data$Y==0,0,1)
 data$zero<-ifelse(is.na(data$Y),NA,data$zero)
 #annual to weekly 
@@ -140,6 +140,7 @@ mid_x75<-mim4$estimate[20]
 
 func<-function(i){
   
+#bootstrap
 dat<-data[sample(1:nrow(data),replace=T),]
 
 #complete case analysis
@@ -390,7 +391,7 @@ cond_prob<-
   return(cond_prob/(cond_prob_1+cond_prob_0))
 }
 
-#weight of zero when m is observed
+#weight of I(Y>0) when m is observed
 y_weight<-function(zero,M,Z,x1,x2,x3,x4,x5,x6,x7,R_m){
   
 cond_prob_1<-
@@ -411,7 +412,7 @@ cond_prob<-
   return(cond_prob/(cond_prob_1+cond_prob_0))
 }
 
-#weight of (m,zero) when both are missing
+#weight of (m,I(Y>0)) when both are missing
 my_weight<-function(zero,M,Z,x1,x2,x3,x4,x5,x6,x7,R_m){
   
 cond_prob_10<-

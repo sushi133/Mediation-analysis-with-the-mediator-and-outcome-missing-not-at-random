@@ -78,7 +78,7 @@ data$x4<-as.factor(data$x4)
 data$x5<-as.factor(data$x5)
 data$x6<-as.factor(data$x6)
 data$x7<-as.factor(data$x7)
-#indicator for outcome when it is 0
+#indicator for outcome I(Y>0)
 data$zero<-ifelse(data$Y==0,0,1)
 data$zero<-ifelse(is.na(data$Y),NA,data$zero)
 #annual to weekly 
@@ -139,6 +139,7 @@ mid_x75<-mim4$estimate[20]
 
 func<-function(i){
   
+#bootstrap
 dat<-data[sample(1:nrow(data),replace=T),]
 
 #complete case analysis

@@ -1,5 +1,6 @@
 library(xlsx)
 library(ggplot2)
+library(dplyr)
 
 #MNAR I
 BMY_I <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Simulation/BMY_I.xlsx', 1)
@@ -563,4 +564,52 @@ ggplot(MNAR0, aes(x=label, y=bias*100, color=method)) + geom_boxplot(outlier.sha
         strip.text = element_text(size = 20),
         legend.title = element_blank(),
         panel.grid.major.x = element_blank())
+
+
+#unidentified case (discrete M and binary Y)
+DMBY_I_EM <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Simulation/DMBY_I_EM.xlsx', 1)
+DMBY_I_EM <- as.data.frame(t(array(as.numeric(unlist(DMBY_I_EM)), dim = dim(DMBY_I_EM))))[-1,]
+DMBY_I_EM <- DMBY_I_EM %>% mutate(k = row_number())
+#RM model
+DMBY_I_EM<-DMBY_I_EM[c("V15","k")]
+DMBY_I_EM$param<-1
+colnames(DMBY_I_EM) <- c("estimate","k","parameter")
+DMBY_I_EM$parameter<-factor(DMBY_I_EM$parameter,labels=c(expression(lambda["m1"])))
+
+DMBY_I <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Simulation/DMBY_I.xlsx', 1)
+DMBY_I <- DMBY_I[c("V15")]
+DMBY_I_T <- data.frame(parameter = 1, Z = as.numeric(DMBY_I[1,]))
+DMBY_I_T$parameter<-factor(DMBY_I_T$parameter, labels=c(expression(lambda["m1"])))
+DMBY_I_OR <- data.frame(parameter = 1, Z = as.numeric(DMBY_I[3,]))
+DMBY_I_OR$parameter<-factor(DMBY_I_OR$parameter,labels=c(expression(lambda["m1"])))
+
+ggplot(DMBY_I_EM, aes(x=k, y=estimate, color='EM', linetype='EM')) + geom_line(linewidth=2) +
+  scale_x_continuous(breaks=seq(0,350,50),limits= c(0,350),expand = c(0.01,0.01)) +
+  scale_y_continuous(breaks=seq(0,16,2),limits= c(0,16),expand = c(0.01,0.01)) +
+  facet_wrap(vars(parameter), nrow = 1, labeller = label_parsed) +
+  geom_hline(data = DMBY_I_T, aes(yintercept = Z, color='Truth', linetype='Truth'), linewidth=2) +
+  geom_hline(data = DMBY_I_OR, aes(yintercept = Z, color='Oracle', linetype='Oracle'), linewidth=2) +
+  labs(x = 'Iteration', y = 'Estimate') +
+  scale_linetype_manual(name = "Method", values = c("EM" = "solid", "Truth" = "twodash", "Oracle" = "dashed"))  +
+  scale_colour_manual(name = "Method", values = c("EM" = "red3", "Truth" = "yellow3", "Oracle" = "green4")) + 
+  theme_bw() +
+  theme(panel.border = element_rect(fill = NA, colour = "black", linewidth = 1),
+        legend.position = 'bottom',
+        legend.text = element_text(size = 50),
+        legend.key.size = unit(10, 'lines'),
+        axis.title = element_text(size = 50),
+        axis.text = element_text(size = 50),
+        axis.ticks.length=unit(0.5, "cm"),
+        strip.text = element_text(size = 50),
+        legend.title = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        plot.margin = margin(0, 2, 0, 2, "cm"))
+
+
+
+
+
+
+
 

@@ -18,7 +18,6 @@ Source data: mpr_jobcorps_team5_nrw_upd_r_nositeid.dta and key_vars.dta
 
 Analysis data: Jobcorpdata.csv
 
-
 ### Code
 
 Create the analysis data (Jobcorpdata.csv): Jobcrop.R
@@ -59,11 +58,6 @@ II_Job_Gamma_S_x_2.xlsx/II_Job_Gamma_S_B_x_2_Param.xlsx/II_Job_Gamma_S_B_x_2.xls
 
 ## Simulation
 
-### Abstract 
-
-We considered a sample size of 1000, and simulated 500 data sets for each simulation scenario. We applied the following three methods to compare their results on the estimations of the NIE and NDE: 1) complete case analysis, which provides consistent estimates under
-MCAR; 2) our proposed methods using the Expectation-Maximization algorithm, which are designed to deal with the MNAR assumptions under concern; and 3) oracle estimators, which are obtained by using the true values of the missing data.
-
 ### Code
 
 Setting A, binary M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
@@ -82,13 +76,17 @@ Setting D, continuous M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y
 
 CMBY_I.R/CMBY_II.R/CMBY_III.R/CMBY_IV.R and CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
 
-Create Figure 4 and Figure 5 in the manuscript: Figures.R
+Counterexample, M has more categories than Y under MNAR Assumption 2: DMBY_I.R
+
+Create Figure 4, Figure 5 and Figure S6 in the manuscript: Figures.R
 
 ### Output
 
-Simulation results (.xlsx) with the same filenames as the corresponding codes.
+Simulation results (.xlsx) with the same filenames as the corresponding codes. 
 
-Figure 4 and Figure 5: SimF1.png and SimF2.png
+(both DMBY_I_EM.xlsx and DMBY_I.xlsx are from DMBY_I.R)
+
+Figure 4, Figure 5 and Figure S6: SimF1.pdf, SimF2.pdf and SimF3_RM.pdf
 
 ## Simulation_v2
 

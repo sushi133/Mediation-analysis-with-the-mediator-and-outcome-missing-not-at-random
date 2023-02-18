@@ -257,6 +257,8 @@ Approximate time needed to reproduce the analyses on a standard desktop machine:
 
 ### Additional information (optional)
 
+Computation time for the unidentifiable cases is longer than the identifiable cases.
+
 <!--
 OPTIONAL: Additional documentation provided (e.g., R package vignettes, demos or other examples) that show how to use the provided code/software in other settings.
 -->
