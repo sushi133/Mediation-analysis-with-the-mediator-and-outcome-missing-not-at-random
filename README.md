@@ -80,31 +80,51 @@ M and Y are independent:
 
 BMY_I(0).R/BMY_II(0).R/BMY_III(0).R/BMY_IV(0).R
 
-Setting B, binary M and continuous Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
+### Binary M and continuous Y under MNAR Assumptions: 
 
-BMCY_I.R/BMCY_II.R/BMCY_III.R/BMCY_IV.R and BMCY_I(0).R/BMCY_II(0).R/BMCY_III(0).R/BMCY_IV(0).R
+M and Y are not independent:
 
-Setting C, continuous M and continuous Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
+BMCY_I.R/BMCY_II.R/BMCY_III.R/BMCY_IV.R
 
-CMY_I.R/CMY_II.R/CMY_III.R/CMY_IV.R and CMY_I(0).R/CMY_II(0).R/CMY_III(0).R/CMY_IV(0).R
+M and Y are independent:
 
-Setting D, continuous M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
+BMCY_I(0).R/BMCY_II(0).R/BMCY_III(0).R/BMCY_IV(0).R
 
-CMBY_I.R/CMBY_II.R/CMBY_III.R/CMBY_IV.R and CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
+### Continuous M and continuous Y under MNAR Assumptions: 
 
-Counterexample, M has more categories than Y under MNAR Assumption 2: DMBY_I.R
+M and Y are not independent:
 
-Create Figure 4, Figure 5 and Figure S6 in the manuscript: Figures.R
+CMY_I.R/CMY_II.R/CMY_III.R/CMY_IV.R
+
+M and Y are independent:
+
+CMY_I(0).R/CMY_II(0).R/CMY_III(0).R/CMY_IV(0).R
+
+### Continuous M and binary Y under MNAR Assumptions: 
+
+M and Y are not independent:
+
+CMBY_I.R/CMBY_II.R/CMBY_III.R/CMBY_IV.R
+
+M and Y are independent:
+
+CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
+
+### Categorical M with three categories and binary Y under MNAR Assumption 2: 
+
+DMBY_I.R
+
+### Figures:
+
+Figures.R: Figure 4, Figure 5 and Figure S6 in the manuscript: 
 
 ### Output
 
 Simulation results (.xlsx) with the same filenames as the corresponding codes. 
 
-(both DMBY_I_EM.xlsx and DMBY_I.xlsx are from DMBY_I.R)
+SimF1.pdf, SimF2.pdf and SimF3.pdf
 
-Figure 4, Figure 5 and Figure S6: SimF1.pdf, SimF2.pdf and SimF3_RM.pdf
+## Simulation2 (alternative approach)
 
-## Simulation_v2
-
-The outcome model is identifiable using the complete cases under MNAR Assumption 2, 3 and 5. Therefore, an alternative approach (Simulation_v2) for those scenarios is to estimate the outcome model first using the complete cases, then estimate the parameters in other models through the Expectation-Maximization algorithm by plugging in the estimated outcome model. We tried those two slightly different approaches to our simulation settings, both provided consistent results, with the alternative approach enjoying higher computation efficiency as expected. However, under MNAR Assumption 4, the alternative approach does not work because the outcome distribution P(Y | M, T, X) can not be identified by the complete cases. So, the R code under MNAR Assumption 4 remain the same.
+The outcome model is identifiable using the complete cases under MNAR Assumption 2, 3 and 5. Therefore, an alternative approach for those scenarios is to estimate the outcome model first using the complete cases, then estimate the parameters in other models through the Expectation-Maximization algorithm by plugging in the estimated outcome model. We tried those two slightly different approaches to our simulation settings, both provided consistent results, with the alternative approach enjoying higher computation efficiency as expected. However, under MNAR Assumption 4, the alternative approach does not work because the outcome model can not be identified by the complete cases. So, the R code under MNAR Assumption 4 remain the same.
 
