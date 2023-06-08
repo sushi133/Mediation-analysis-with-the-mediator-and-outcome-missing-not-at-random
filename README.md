@@ -70,15 +70,13 @@ II_Job_Gamma_S_2_2.xlsx/II_Job_Gamma_S_B_2_2_Param.xlsx/II_Job_Gamma_S_B_2_2.xls
 
 ## Simulation
 
-### Code
+### Binary M and binary Y under MNAR Assumptions: 
 
-Binary M and binary Y under MNAR Assumptions: 
-
-M and Y are not independent conditioning on T and X:
+M and Y are not independent:
 
 BMY_I.R/BMY_II.R/BMY_III.R/BMY_IV.R
 
-M and Y are independent conditioning on T and X:
+M and Y are independent:
 
 BMY_I(0).R/BMY_II(0).R/BMY_III(0).R/BMY_IV(0).R
 
