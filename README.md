@@ -70,7 +70,7 @@ II_Job_Gamma_S_2_2.xlsx/II_Job_Gamma_S_B_2_2_Param.xlsx/II_Job_Gamma_S_B_2_2.xls
 
 ## Simulation
 
-### Binary M and binary Y under MNAR Assumptions: 
+### Binary M and binary Y under MNAR Assumptions
 
 M and Y are not independent:
 
@@ -80,7 +80,7 @@ M and Y are independent:
 
 BMY_I(0).R/BMY_II(0).R/BMY_III(0).R/BMY_IV(0).R
 
-### Binary M and continuous Y under MNAR Assumptions: 
+### Binary M and continuous Y under MNAR Assumptions
 
 M and Y are not independent:
 
@@ -90,7 +90,7 @@ M and Y are independent:
 
 BMCY_I(0).R/BMCY_II(0).R/BMCY_III(0).R/BMCY_IV(0).R
 
-### Continuous M and continuous Y under MNAR Assumptions: 
+### Continuous M and continuous Y under MNAR Assumptions
 
 M and Y are not independent:
 
@@ -100,7 +100,7 @@ M and Y are independent:
 
 CMY_I(0).R/CMY_II(0).R/CMY_III(0).R/CMY_IV(0).R
 
-### Continuous M and binary Y under MNAR Assumptions: 
+### Continuous M and binary Y under MNAR Assumptions
 
 M and Y are not independent:
 
@@ -110,11 +110,11 @@ M and Y are independent:
 
 CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
 
-### Categorical M with three categories and binary Y under MNAR Assumption 2: 
+### Categorical M with three categories and binary Y under MNAR Assumption 2
 
 DMBY_I.R
 
-### Figures:
+### Figures
 
 Figures.R: Figure 4, Figure 5 and Figure S6 in the manuscript: 
 
