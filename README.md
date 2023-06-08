@@ -68,6 +68,8 @@ II_Job_Gamma_S_-2_2.xlsx/II_Job_Gamma_S_B_-2_2_Param.xlsx/II_Job_Gamma_S_B_-2_2.
 II_Job_Gamma_S_0_2.xlsx/II_Job_Gamma_S_B_0_2_Param.xlsx/II_Job_Gamma_S_B_0_2.xlsx
 II_Job_Gamma_S_2_2.xlsx/II_Job_Gamma_S_B_2_2_Param.xlsx/II_Job_Gamma_S_B_2_2.xlsx
 
+Expected run-time: Compute_time(hours).xlsx
+
 ## Simulation
 
 ### Code
@@ -125,6 +127,8 @@ Figure 4, Figure 5 and Figure S6 in the manuscript: Figures.R
 Simulation results (.xlsx) with the same filenames as the corresponding codes. 
 
 SimF1.pdf, SimF2.pdf and SimF3.pdf
+
+Expected run-time: Compute_time(hours).xlsx
 
 ## Simulation2 (alternative approach)
 
