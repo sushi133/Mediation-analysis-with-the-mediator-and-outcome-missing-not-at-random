@@ -118,7 +118,7 @@ DMBY_I.R
 
 #### Figures
 
-Figures.R: Figure 4, Figure 5 and Figure S6 in the manuscript
+Figure 4, Figure 5 and Figure S6 in the manuscript: Figures.R
 
 ### Output
 
