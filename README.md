@@ -20,9 +20,9 @@ Analysis data: Jobcorpdata.csv
 
 ### Code
 
-Create the analysis data (Jobcorpdata.csv): Jobcrop.R
+Create the analysis data from the source data: Jobcrop.R
 
-Table 1 (missingness patterns) and any additional information provided in the manuscript: Addtional_Information.R
+Create Table 1 and provide other information regarding the study in the manuscript: Addtional_Information.R
 
 Two-part Gamma and Two-part log-normal model under MNAR Assumptions 3/4/5 (the log-likelihoods evaluated at the MLEs for those six models are calculated): 
 
