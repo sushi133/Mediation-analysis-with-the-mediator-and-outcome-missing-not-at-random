@@ -27,6 +27,7 @@ Information regarding the study in the manuscript: Addtional_Information.R
 Gamma and Lognormal model under MNAR Assumptions 3/4/5: 
 
 II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R
+
 II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R
 
 Data analysis results from Gamma model under MNAR Assumptions 3: 
@@ -48,6 +49,7 @@ Table 1-4 in the manuscript: Table.R
 Gamma and Lognormal model under MNAR Assumptions 3/4/5: 
 
 II_Job_Gamma.xlsx/III_Job_Gamma.xlsx/IV_Job_Gamma.xlsx
+
 II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx
 
 Data analysis results from Gamma model under MNAR Assumptions 3: 
