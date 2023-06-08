@@ -20,41 +20,40 @@ Analysis data: Jobcorpdata.csv
 
 ### Code
 
-Create the analysis data from the source data: Jobcrop.R
+Analysis data: Jobcrop.R
 
-Create Table 1 and provide other information regarding the study in the manuscript: Addtional_Information.R
+Other information regarding the study in the manuscript: Addtional_Information.R
 
-Two-part Gamma and Two-part log-normal model under MNAR Assumptions 3/4/5 (the log-likelihoods evaluated at the MLEs for those six models are calculated): 
+Gamma and Lognormal model under MNAR Assumptions 3/4/5: II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R/II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R
 
-II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R and II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R
+Data analysis results from Gamma model under MNAR Assumptions 3: II_Job_Gamma.R/II_Job_Gamma_B.R
 
-Data analysis results from two-part Gamma model under MNAR Assumptions 3: II_Job_Gamma.R/II_Job_Gamma_B.R
+Sensitivity analysis results from Gamma model under MNAR Assumptions 3+5: II_Job_Gamma_S_IV.R/II_Job_Gamma_S_B_IV.R
 
-Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+5: II_Job_Gamma_S_IV.R/II_Job_Gamma_S_B_IV.R
+Sensitivity analysis results from Gamma model under MNAR Assumptions 3+4+5: II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R
 
-Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+4+5: II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R
-
-Table 3, Table 4 and Table 5 in the manuscript: Table.R
+Table 1-4 in the manuscript: Table.R
 
 ### Output
 
-Two-part Gamma and Two-part log-normal model under MNAR Assumptions 3/4/5: II_Job_Gamma.xlsx/III_Job_Gamma.xlsx/IV_Job_Gamma.xlsx/II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx
+Gamma and Lognormal model under MNAR Assumptions 3/4/5: II_Job_Gamma.xlsx/III_Job_Gamma.xlsx/IV_Job_Gamma.xlsx/II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx
 
-Data analysis results from two-part Gamma model under MNAR Assumptions 3: II_Job_Gamma.xlsx/II_Job_Gamma_B_Param.xlsx/II_Job_Gamma_B.xlsx
+Data analysis results from Gamma model under MNAR Assumptions 3: II_Job_Gamma.xlsx/II_Job_Gamma_B_Param.xlsx/II_Job_Gamma_B.xlsx
 
-Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+5:
+Sensitivity analysis results from Gamma model under MNAR Assumptions 3+5:
 
-(x: set sensitivity parameter (gamma m) to vary among -2, 0 and 2)
+II_Job_Gamma_S_-2_0.xlsx/II_Job_Gamma_S_B_-2_0_Param.xlsx/II_Job_Gamma_S_B_-2_0.xlsx
+II_Job_Gamma_S_0_0.xlsx/II_Job_Gamma_S_B_0_0_Param.xlsx/II_Job_Gamma_S_B_0_0.xlsx
+II_Job_Gamma_S_2_0.xlsx/II_Job_Gamma_S_B_2_0_Param.xlsx/II_Job_Gamma_S_B_2_0.xlsx
 
-II_Job_Gamma_S_x_0.xlsx/II_Job_Gamma_S_B_x_0_Param.xlsx/II_Job_Gamma_S_B_x_0.xlsx
+Sensitivity analysis results from Gamma model under MNAR Assumptions 3+4+5: 
 
-Sensitivity analysis results from two-part Gamma model under MNAR Assumptions 3+4+5: 
-
-(x: set sensitivity parameter (gamma m) to vary among -2, 0 and 2)
-
-II_Job_Gamma_S_x_-2.xlsx/II_Job_Gamma_S_B_x_-2_Param.xlsx/II_Job_Gamma_S_B_x_-2.xlsx
-
-II_Job_Gamma_S_x_2.xlsx/II_Job_Gamma_S_B_x_2_Param.xlsx/II_Job_Gamma_S_B_x_2.xlsx
+II_Job_Gamma_S_-2_-2.xlsx/II_Job_Gamma_S_B_-2_-2_Param.xlsx/II_Job_Gamma_S_B_-2_-2.xlsx
+II_Job_Gamma_S_0_-2.xlsx/II_Job_Gamma_S_B_0_-2_Param.xlsx/II_Job_Gamma_S_B_0_-2.xlsx
+II_Job_Gamma_S_2_-2.xlsx/II_Job_Gamma_S_B_2_-2_Param.xlsx/II_Job_Gamma_S_B_2_-2.xlsx
+II_Job_Gamma_S_-2_2.xlsx/II_Job_Gamma_S_B_-2_2_Param.xlsx/II_Job_Gamma_S_B_-2_2.xlsx
+II_Job_Gamma_S_0_2.xlsx/II_Job_Gamma_S_B_0_2_Param.xlsx/II_Job_Gamma_S_B_0_2.xlsx
+II_Job_Gamma_S_2_2.xlsx/II_Job_Gamma_S_B_2_2_Param.xlsx/II_Job_Gamma_S_B_2_2.xlsx
 
 ## Simulation
 
