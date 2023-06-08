@@ -72,9 +72,14 @@ II_Job_Gamma_S_2_2.xlsx/II_Job_Gamma_S_B_2_2_Param.xlsx/II_Job_Gamma_S_B_2_2.xls
 
 ### Code
 
-Setting A, binary M and binary Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
+Binary M and binary Y under MNAR Assumptions: 
+
+M and Y are not independent conditioning on T and X:
 
 BMY_I.R/BMY_II.R/BMY_III.R/BMY_IV.R
+
+M and Y are independent conditioning on T and X:
+
 BMY_I(0).R/BMY_II(0).R/BMY_III(0).R/BMY_IV(0).R
 
 Setting B, binary M and continuous Y under MNAR Assumptions 2/3/4/5 when M and Y are not independent conditioning on T and X, and when M and Y are independent conditioning on T and X:
