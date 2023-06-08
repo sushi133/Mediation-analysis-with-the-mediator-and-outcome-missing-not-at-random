@@ -24,21 +24,33 @@ Analysis data: Jobcrop.R
 
 Other information regarding the study in the manuscript: Addtional_Information.R
 
-Gamma and Lognormal model under MNAR Assumptions 3/4/5: II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R/II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R
+Gamma and Lognormal model under MNAR Assumptions 3/4/5: 
 
-Data analysis results from Gamma model under MNAR Assumptions 3: II_Job_Gamma.R/II_Job_Gamma_B.R
+II_Job_Gamma.R/III_Job_Gamma.R/IV_Job_Gamma.R/II_Job_Lnorm.R/III_Job_Lnorm.R/IV_Job_Lnorm.R
 
-Sensitivity analysis results from Gamma model under MNAR Assumptions 3+5: II_Job_Gamma_S_IV.R/II_Job_Gamma_S_B_IV.R
+Data analysis results from Gamma model under MNAR Assumptions 3: 
 
-Sensitivity analysis results from Gamma model under MNAR Assumptions 3+4+5: II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R
+II_Job_Gamma.R/II_Job_Gamma_B.R
+
+Sensitivity analysis results from Gamma model under MNAR Assumptions 3+5: 
+
+II_Job_Gamma_S_IV.R/II_Job_Gamma_S_B_IV.R
+
+Sensitivity analysis results from Gamma model under MNAR Assumptions 3+4+5: 
+
+II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R
 
 Table 1-4 in the manuscript: Table.R
 
 ### Output
 
-Gamma and Lognormal model under MNAR Assumptions 3/4/5: II_Job_Gamma.xlsx/III_Job_Gamma.xlsx/IV_Job_Gamma.xlsx/II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx
+Gamma and Lognormal model under MNAR Assumptions 3/4/5: 
 
-Data analysis results from Gamma model under MNAR Assumptions 3: II_Job_Gamma.xlsx/II_Job_Gamma_B_Param.xlsx/II_Job_Gamma_B.xlsx
+II_Job_Gamma.xlsx/III_Job_Gamma.xlsx/IV_Job_Gamma.xlsx/II_Job_Lnorm.xlsx/III_Job_Lnorm.xlsx/IV_Job_Lnorm.xlsx
+
+Data analysis results from Gamma model under MNAR Assumptions 3: 
+
+II_Job_Gamma.xlsx/II_Job_Gamma_B_Param.xlsx/II_Job_Gamma_B.xlsx
 
 Sensitivity analysis results from Gamma model under MNAR Assumptions 3+5:
 
