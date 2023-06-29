@@ -22,9 +22,9 @@ Analysis data: Jobcorpdata.csv
 
 Analysis data: Jobcrop.R
 
-Other information in the manuscript: Addtional_Information.R
+Other information: Addtional_Information.R
 
-Table 1-4 in the manuscript: Table.R
+Table 1-4: Table.R
 
 Data analysis results from Gamma and Lognormal model under MNAR Assumptions 3/4/5: 
 
