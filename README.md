@@ -42,11 +42,11 @@ II_Job_Gamma_S_III+IV.R, II_Job_Gamma_S_B_III+IV.R
 
 Data analysis results from Gamma and Lognormal model under MNAR Assumptions 3/4/5: 
 
-II_Job_Gamma.xlsx, II_Job_Gamma_B.xlsx, III_Job_Gamma.xlsx/III_Job_Gamma_B.xlsx, IV_Job_Gamma.xlsx/IV_Job_Gamma_B.xlsx, II_Job_Lnorm.xlsx, II_Job_Lnorm_B.xlsx, III_Job_Lnorm.xlsx, III_Job_Lnorm_B.xlsx, IV_Job_Lnorm.xlsx/IV_Job_Lnorm_B.xlsx
+II_Job_Gamma.xlsx, II_Job_Gamma_B.xlsx, III_Job_Gamma.xlsx, III_Job_Gamma_B.xlsx, IV_Job_Gamma.xlsx, IV_Job_Gamma_B.xlsx, II_Job_Lnorm.xlsx, II_Job_Lnorm_B.xlsx, III_Job_Lnorm.xlsx, III_Job_Lnorm_B.xlsx, IV_Job_Lnorm.xlsx, IV_Job_Lnorm_B.xlsx
 
 Sensitivity analysis results from Gamma model under MNAR Assumptions 3+5:
 
-II_Job_Gamma_S_-2_0.xlsx, II_Job_Gamma_S_B_-2_0.xlsx, II_Job_Gamma_S_0_0.xlsx/II_Job_Gamma_S_B_0_0.xlsx, II_Job_Gamma_S_2_0.xlsx/II_Job_Gamma_S_B_2_0.xlsx
+II_Job_Gamma_S_-2_0.xlsx, II_Job_Gamma_S_B_-2_0.xlsx, II_Job_Gamma_S_0_0.xlsx, II_Job_Gamma_S_B_0_0.xlsx, II_Job_Gamma_S_2_0.xlsx, II_Job_Gamma_S_B_2_0.xlsx
 
 Sensitivity analysis results from Gamma model under MNAR Assumptions 3+4+5: 
 
