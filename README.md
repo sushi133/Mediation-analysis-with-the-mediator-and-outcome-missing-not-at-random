@@ -53,25 +53,37 @@ II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R
 Data analysis results from Gamma and Lognormal model under MNAR Assumptions 3/4/5: 
 
 II_Job_Gamma.xlsx/II_Job_Gamma_B.xlsx
+
 III_Job_Gamma.xlsx/III_Job_Gamma_B.xlsx
+
 IV_Job_Gamma.xlsx/IV_Job_Gamma_B.xlsx
+
 II_Job_Lnorm.xlsx/II_Job_Lnorm_B.xlsx
+
 III_Job_Lnorm.xlsx/III_Job_Lnorm_B.xlsx
+
 IV_Job_Lnorm.xlsx/IV_Job_Lnorm_B.xlsx
 
 Sensitivity analysis results from Gamma model under MNAR Assumptions 3+5:
 
 II_Job_Gamma_S_-2_0.xlsx/II_Job_Gamma_S_B_-2_0.xlsx
+
 II_Job_Gamma_S_0_0.xlsx/II_Job_Gamma_S_B_0_0.xlsx
+
 II_Job_Gamma_S_2_0.xlsx/II_Job_Gamma_S_B_2_0.xlsx
 
 Sensitivity analysis results from Gamma model under MNAR Assumptions 3+4+5: 
 
 II_Job_Gamma_S_-2_-2.xlsx/II_Job_Gamma_S_B_-2_-2.xlsx
+
 II_Job_Gamma_S_0_-2.xlsx/II_Job_Gamma_S_B_0_-2.xlsx
+
 II_Job_Gamma_S_2_-2.xlsx/II_Job_Gamma_S_B_2_-2.xlsx
+
 II_Job_Gamma_S_-2_2.xlsx/II_Job_Gamma_S_B_-2_2.xlsx
+
 II_Job_Gamma_S_0_2.xlsx/II_Job_Gamma_S_B_0_2.xlsx
+
 II_Job_Gamma_S_2_2.xlsx/II_Job_Gamma_S_B_2_2.xlsx
 
 ## Simulation
@@ -80,19 +92,27 @@ II_Job_Gamma_S_2_2.xlsx/II_Job_Gamma_S_B_2_2.xlsx
 
 #### Binary M and binary Y under MNAR Assumptions
 
-BMY_I.R/BMY_II.R/BMY_III.R/BMY_IV.R/BMY_I(0).R/BMY_II(0).R/BMY_III(0).R/BMY_IV(0).R
+BMY_I.R/BMY_II.R/BMY_III.R/BMY_IV.R
+
+BMY_I(0).R/BMY_II(0).R/BMY_III(0).R/BMY_IV(0).R
 
 #### Binary M and continuous Y under MNAR Assumptions
 
-BMCY_I.R/BMCY_II.R/BMCY_III.R/BMCY_IV.R/BMCY_I(0).R/BMCY_II(0).R/BMCY_III(0).R/BMCY_IV(0).R
+BMCY_I.R/BMCY_II.R/BMCY_III.R/BMCY_IV.R
+
+BMCY_I(0).R/BMCY_II(0).R/BMCY_III(0).R/BMCY_IV(0).R
 
 #### Continuous M and continuous Y under MNAR Assumptions
 
-CMY_I.R/CMY_II.R/CMY_III.R/CMY_IV.R/CMY_I(0).R/CMY_II(0).R/CMY_III(0).R/CMY_IV(0).R
+CMY_I.R/CMY_II.R/CMY_III.R/CMY_IV.R
+
+CMY_I(0).R/CMY_II(0).R/CMY_III(0).R/CMY_IV(0).R
 
 #### Continuous M and binary Y under MNAR Assumptions
 
-CMBY_I.R/CMBY_II.R/CMBY_III.R/CMBY_IV.R/CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
+CMBY_I.R/CMBY_II.R/CMBY_III.R/CMBY_IV.R
+
+CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
 
 #### Categorical M with three categories and binary Y under MNAR Assumptions
 
