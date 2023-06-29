@@ -56,29 +56,27 @@ II_Job_Gamma_S_-2_-2.xlsx, II_Job_Gamma_S_B_-2_-2.xlsx, II_Job_Gamma_S_0_-2.xlsx
 
 ### Code
 
-#### Binary M and binary Y under MNAR Assumptions
+Binary M and binary Y under MNAR Assumptions:
 
 BMY_I.R, BMY_II.R, BMY_III.R, BMY_IV.R, BMY_I(0).R, BMY_II(0).R, BMY_III(0).R, BMY_IV(0).R
 
-#### Binary M and continuous Y under MNAR Assumptions
+Binary M and continuous Y under MNAR Assumptions:
 
 BMCY_I.R, BMCY_II.R, BMCY_III.R, BMCY_IV.R, BMCY_I(0).R, BMCY_II(0).R, BMCY_III(0).R, BMCY_IV(0).R
 
-#### Continuous M and continuous Y under MNAR Assumptions
+Continuous M and continuous Y under MNAR Assumptions:
 
 CMY_I.R, CMY_II.R, CMY_III.R, CMY_IV.R, CMY_I(0).R, CMY_II(0).R, CMY_III(0).R, CMY_IV(0).R
 
-#### Continuous M and binary Y under MNAR Assumptions
+Continuous M and binary Y under MNAR Assumptions:
 
 CMBY_I.R, CMBY_II.R, CMBY_III.R, CMBY_IV.R, CMBY_I(0).R, CMBY_II(0).R, CMBY_III(0).R, CMBY_IV(0).R
 
-#### Categorical M with three categories and binary Y under MNAR Assumptions
+Categorical M with three categories and binary Y under MNAR Assumptions:
 
 DMBY_I.R, DMBY_IV.R
 
-#### Figures
-
-Figure 4, Figure 5 and Figure S6 in the manuscript: Figures.R
+Figure 1-4: Figure.R
 
 ### Output
 
