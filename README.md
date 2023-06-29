@@ -28,25 +28,25 @@ Table 1-4 in the manuscript: Table.R
 
 Data analysis results from Gamma and Lognormal model under MNAR Assumptions 3/4/5: 
 
-II_Job_Gamma.R/II_Job_Gamma_B.R
+II_Job_Gamma.R, II_Job_Gamma_B.R
 
-III_Job_Gamma.R/III_Job_Gamma_B.R
+III_Job_Gamma.R, III_Job_Gamma_B.R
 
-IV_Job_Gamma.R/IV_Job_Gamma_B.R
+IV_Job_Gamma.R, IV_Job_Gamma_B.R
 
-II_Job_Lnorm.R/II_Job_Lnorm_B.R
+II_Job_Lnorm.R, II_Job_Lnorm_B.R
 
-III_Job_Lnorm.R/III_Job_Lnorm_B.R
+III_Job_Lnorm.R, III_Job_Lnorm_B.R
 
-IV_Job_Lnorm.R/IV_Job_Lnorm_B.R
+IV_Job_Lnorm.R, IV_Job_Lnorm_B.R
 
 Sensitivity analysis results from Gamma model under MNAR Assumptions 3+5: 
 
-II_Job_Gamma_S_IV.R/II_Job_Gamma_S_B_IV.R
+II_Job_Gamma_S_IV.R, II_Job_Gamma_S_B_IV.R
 
 Sensitivity analysis results from Gamma model under MNAR Assumptions 3+4+5: 
 
-II_Job_Gamma_S_III+IV.R/II_Job_Gamma_S_B_III+IV.R
+II_Job_Gamma_S_III+IV.R, II_Job_Gamma_S_B_III+IV.R
 
 ### Output
 
