@@ -28,9 +28,7 @@ Table 1-4 in the manuscript: Table.R
 
 Data analysis results from Gamma and Lognormal model under MNAR Assumptions 3/4/5: 
 
-II_Job_Gamma.R, II_Job_Gamma_B.R, III_Job_Gamma.R, III_Job_Gamma_B.R, IV_Job_Gamma.R, IV_Job_Gamma_B.R
-
-II_Job_Lnorm.R, II_Job_Lnorm_B.R, III_Job_Lnorm.R, III_Job_Lnorm_B.R, IV_Job_Lnorm.R, IV_Job_Lnorm_B.R
+II_Job_Gamma.R, II_Job_Gamma_B.R, III_Job_Gamma.R, III_Job_Gamma_B.R, IV_Job_Gamma.R, IV_Job_Gamma_B.R, II_Job_Lnorm.R, II_Job_Lnorm_B.R, III_Job_Lnorm.R, III_Job_Lnorm_B.R, IV_Job_Lnorm.R, IV_Job_Lnorm_B.R
 
 Sensitivity analysis results from Gamma model under MNAR Assumptions 3+5: 
 
@@ -66,25 +64,19 @@ BMY_I.R, BMY_II.R, BMY_III.R, BMY_IV.R, BMY_I(0).R, BMY_II(0).R, BMY_III(0).R, B
 
 #### Binary M and continuous Y under MNAR Assumptions
 
-BMCY_I.R/BMCY_II.R/BMCY_III.R/BMCY_IV.R
-
-BMCY_I(0).R/BMCY_II(0).R/BMCY_III(0).R/BMCY_IV(0).R
+BMCY_I.R, BMCY_II.R, BMCY_III.R, BMCY_IV.R, BMCY_I(0).R, BMCY_II(0).R, BMCY_III(0).R, BMCY_IV(0).R
 
 #### Continuous M and continuous Y under MNAR Assumptions
 
-CMY_I.R/CMY_II.R/CMY_III.R/CMY_IV.R
-
-CMY_I(0).R/CMY_II(0).R/CMY_III(0).R/CMY_IV(0).R
+CMY_I.R, CMY_II.R, CMY_III.R, CMY_IV.R, CMY_I(0).R, CMY_II(0).R, CMY_III(0).R, CMY_IV(0).R
 
 #### Continuous M and binary Y under MNAR Assumptions
 
-CMBY_I.R/CMBY_II.R/CMBY_III.R/CMBY_IV.R
-
-CMBY_I(0).R/CMBY_II(0).R/CMBY_III(0).R/CMBY_IV(0).R
+CMBY_I.R, CMBY_II.R, CMBY_III.R, CMBY_IV.R, CMBY_I(0).R, CMBY_II(0).R, CMBY_III(0).R, CMBY_IV(0).R
 
 #### Categorical M with three categories and binary Y under MNAR Assumptions
 
-DMBY_I.R/DMBY_IV.R
+DMBY_I.R, DMBY_IV.R
 
 #### Figures
 
