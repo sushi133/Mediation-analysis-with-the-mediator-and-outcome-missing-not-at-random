@@ -4,29 +4,29 @@ library(dplyr)
 library(parallel)
 
 #E[Y(t,M(t))]
-int11<-function(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x){
-  mean((b_0+b_m*1+b_t*1+b_mt*1*1+b_x*data$x)*
-       (exp(a_0+a_t*1+a_x*data$x)/(1+exp(a_0+a_t*1+a_x*data$x)))+
-       (b_0+b_m*0+b_t*1+b_mt*0*1+b_x*data$x)*
-       (1/(1+exp(a_0+a_t*1+a_x*data$x))))
+int11<-function(x,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x){
+  mean((b_0+b_m*1+b_t*1+b_mt*1*1+b_x*x)*
+       (exp(a_0+a_t*1+a_x*x)/(1+exp(a_0+a_t*1+a_x*x)))+
+       (b_0+b_m*0+b_t*1+b_mt*0*1+b_x*x)*
+       (1/(1+exp(a_0+a_t*1+a_x*x))))
 }
-int10<-function(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x){
-  mean((b_0+b_m*1+b_t*1+b_mt*1*1+b_x*data$x)*
-       (exp(a_0+a_t*0+a_x*data$x)/(1+exp(a_0+a_t*0+a_x*data$x)))+
-       (b_0+b_m*0+b_t*1+b_mt*0*1+b_x*data$x)*
-       (1/(1+exp(a_0+a_t*0+a_x*data$x))))
+int10<-function(x,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x){
+  mean((b_0+b_m*1+b_t*1+b_mt*1*1+b_x*x)*
+       (exp(a_0+a_t*0+a_x*x)/(1+exp(a_0+a_t*0+a_x*x)))+
+       (b_0+b_m*0+b_t*1+b_mt*0*1+b_x*x)*
+       (1/(1+exp(a_0+a_t*0+a_x*x))))
 }
-int01<-function(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x){
-  mean((b_0+b_m*1+b_t*0+b_mt*1*0+b_x*data$x)*
-       (exp(a_0+a_t*1+a_x*data$x)/(1+exp(a_0+a_t*1+a_x*data$x)))+
-       (b_0+b_m*0+b_t*0+b_mt*0*0+b_x*data$x)*
-       (1/(1+exp(a_0+a_t*1+a_x*data$x))))
+int01<-function(x,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x){
+  mean((b_0+b_m*1+b_t*0+b_mt*1*0+b_x*x)*
+       (exp(a_0+a_t*1+a_x*x)/(1+exp(a_0+a_t*1+a_x*x)))+
+       (b_0+b_m*0+b_t*0+b_mt*0*0+b_x*x)*
+       (1/(1+exp(a_0+a_t*1+a_x*x))))
 }
-int00<-function(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x){
-  mean((b_0+b_m*1+b_t*0+b_mt*1*0+b_x*data$x)*
-       (exp(a_0+a_t*0+a_x*data$x)/(1+exp(a_0+a_t*0+a_x*data$x)))+
-       (b_0+b_m*0+b_t*0+b_mt*0*0+b_x*data$x)*
-       (1/(1+exp(a_0+a_t*0+a_x*data$x))))
+int00<-function(x,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x){
+  mean((b_0+b_m*1+b_t*0+b_mt*1*0+b_x*x)*
+       (exp(a_0+a_t*0+a_x*x)/(1+exp(a_0+a_t*0+a_x*x)))+
+       (b_0+b_m*0+b_t*0+b_mt*0*0+b_x*x)*
+       (1/(1+exp(a_0+a_t*0+a_x*x))))
 }
 
 func<-function(i){
@@ -99,13 +99,12 @@ ccd_rm<-NA
 ccd_t<-NA
 ccd_x<-NA
 
-#generate initial parameters for EM algorithm
+#mice for MAR
 dat_mi<-subset(data, select = c(y,m,t,x,R_y,R_m))
 dat_mi$m<-as.factor(dat_mi$m)
-imp <- mice(dat_mi, print = F)
 #define predictor
-pred <- imp$predictorMatrix
-pred[c('m'), c('y','R_y','R_m')] <- 0
+pred <- mice(dat_mi, print = F)$predictorMatrix
+pred[c('m'), c('R_y','R_m')] <- 0
 pred[c('y'), c('R_y','R_m')] <- 0
 imp <- mice(dat_mi, m = 5, pred = pred, print=F, seed=123)
 mim1<-summary(pool(with(imp, lm(y~m+t+m*t+x))))
@@ -117,6 +116,13 @@ mib_m<-mim1$estimate[2]
 mib_t<-mim1$estimate[3]
 mib_x<-mim1$estimate[4]
 mib_mt<-mim1$estimate[5]
+#pooled residual standard deviation
+sigma <- list()
+for (i in 1:5) {
+  imputed <- complete(imp, i)
+  sigma[[i]] <- summary(lm(y~m+t+m*t+x, data = imputed))$sigma
+}
+misd_y<-mean(unlist(sigma)) 
 mia_0<-mim2$estimate[1]
 mia_t<-mim2$estimate[2]
 mia_x<-mim2$estimate[3]  
@@ -259,51 +265,55 @@ while (sum(abs(Q[[k]]-Q[[k-1]]))/sum(Q[[k-1]])>=1e-5) {
 
 }
 
-tTIE<-int11(data,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)-int10(data,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)
-tPDE<-int10(data,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)-int00(data,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)
-tPIE<-int01(data,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)-int00(data,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)
-tTDE<-int11(data,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)-int01(data,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)
+tTIE<-int11(x,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)-int10(x,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)
+tPDE<-int10(x,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)-int00(x,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)
+tPIE<-int01(x,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)-int00(x,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)
+tTDE<-int11(x,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)-int01(x,tb_0,tb_m,tb_t,tb_mt,tb_x,ta_0,ta_t,ta_x)
 
-ccTIE<-int11(data,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)-int10(data,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)
-ccPDE<-int10(data,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)-int00(data,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)
-ccPIE<-int01(data,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)-int00(data,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)
-ccTDE<-int11(data,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)-int01(data,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)
+ccTIE<-int11(x,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)-int10(x,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)
+ccPDE<-int10(x,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)-int00(x,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)
+ccPIE<-int01(x,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)-int00(x,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)
+ccTDE<-int11(x,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)-int01(x,ccb_0,ccb_m,ccb_t,ccb_mt,ccb_x,cca_0,cca_t,cca_x)
 
-emTIE<-int11(data,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)-int10(data,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)
-emPDE<-int10(data,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)-int00(data,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)
-emPIE<-int01(data,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)-int00(data,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)
-emTDE<-int11(data,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)-int01(data,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)
+miTIE<-int11(x,mib_0,mib_m,mib_t,mib_mt,mib_x,mia_0,mia_t,mia_x)-int10(x,mib_0,mib_m,mib_t,mib_mt,mib_x,mia_0,mia_t,mia_x)
+miPDE<-int10(x,mib_0,mib_m,mib_t,mib_mt,mib_x,mia_0,mia_t,mia_x)-int00(x,mib_0,mib_m,mib_t,mib_mt,mib_x,mia_0,mia_t,mia_x)
+miPIE<-int01(x,mib_0,mib_m,mib_t,mib_mt,mib_x,mia_0,mia_t,mia_x)-int00(x,mib_0,mib_m,mib_t,mib_mt,mib_x,mia_0,mia_t,mia_x)
+miTDE<-int11(x,mib_0,mib_m,mib_t,mib_mt,mib_x,mia_0,mia_t,mia_x)-int01(x,mib_0,mib_m,mib_t,mib_mt,mib_x,mia_0,mia_t,mia_x)
 
-TIE<-int11(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)-int10(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)
-PDE<-int10(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)-int00(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)
-PIE<-int01(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)-int00(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)
-TDE<-int11(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)-int01(data,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)
+emTIE<-int11(x,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)-int10(x,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)
+emPDE<-int10(x,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)-int00(x,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)
+emPIE<-int01(x,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)-int00(x,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)
+emTDE<-int11(x,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)-int01(x,emb_0,emb_m,emb_t,emb_mt,emb_x,ema_0,ema_t,ema_x)
 
-matrix(c(ta_0,cca_0,ema_0,
-         ta_t,cca_t,ema_t,
-         ta_x,cca_x,ema_x,
-         tb_0,ccb_0,emb_0,
-         tb_m,ccb_m,emb_m,
-         tb_t,ccb_t,emb_t,
-         tb_x,ccb_x,emb_x,
-         tb_mt,ccb_mt,emb_mt,
-         tsd_y,ccsd_y,emsd_y,
-         tc_0,ccc_0,emc_0,
-         tc_m,ccc_m,emc_m,
-         tc_t,ccc_t,emc_t,
-         tc_x,ccc_x,emc_x,
-         td_0,ccd_0,emd_0,
-         td_rm,ccd_rm,emd_rm,
-         td_t,ccd_t,emd_t,
-         td_x,ccd_x,emd_x,
-         (tTIE-TIE)/PDE,(ccTIE-TIE)/PDE,(emTIE-TIE)/PDE,
-         (tPDE-PDE)/PDE,(ccPDE-PDE)/PDE,(emPDE-PDE)/PDE,
-         (tPIE-PIE)/TDE,(ccPIE-PIE)/TDE,(emPIE-PIE)/TDE,
-         (tTDE-TDE)/TDE,(ccTDE-TDE)/TDE,(emTDE-TDE)/TDE,
-         miss_m,miss_m,miss_m,
-         miss_y,miss_y,miss_y,
-         miss_my,miss_my,miss_my,
-         k,k,k),byrow=T,25,3)
+matrix(c(ta_0,cca_0,mia_0,ema_0,
+         ta_t,cca_t,mia_t,ema_t,
+         ta_x,cca_x,mia_x,ema_x,
+         tb_0,ccb_0,mib_0,emb_0,
+         tb_m,ccb_m,mib_m,emb_m,
+         tb_t,ccb_t,mib_t,emb_t,
+         tb_x,ccb_x,mib_x,emb_x,
+         tb_mt,ccb_mt,mib_mt,emb_mt,
+         tsd_y,ccsd_y,misd_y,emsd_y,
+         tc_0,ccc_0,mic_0,emc_0,
+         tc_m,ccc_m,mic_m,emc_m,
+         tc_t,ccc_t,mic_t,emc_t,
+         tc_x,ccc_x,mic_x,emc_x,
+         td_0,ccd_0,mid_0,emd_0,
+         td_rm,ccd_rm,mid_rm,emd_rm,
+         td_t,ccd_t,mid_t,emd_t,
+         td_x,ccd_x,mid_x,emd_x,
+         tTIE,ccTIE,miTIE,emTIE,
+         tPDE,ccPDE,miPDE,emPDE,
+         tPIE,ccPIE,miPIE,emPIE,
+         tTDE,ccTDE,miTDE,emTDE,
+         (tTIE-TIE)/PDE,(ccTIE-TIE)/PDE,(miTIE-TIE)/PDE,(emTIE-TIE)/PDE,
+         (tPDE-PDE)/PDE,(ccPDE-PDE)/PDE,(miPDE-PDE)/PDE,(emPDE-PDE)/PDE,
+         (tPIE-PIE)/TDE,(ccPIE-PIE)/TDE,(miPIE-PIE)/TDE,(emPIE-PIE)/TDE,
+         (tTDE-TDE)/TDE,(ccTDE-TDE)/TDE,(miTDE-TDE)/TDE,(emTDE-TDE)/TDE,
+         miss_m,miss_m,miss_m,miss_m,
+         miss_y,miss_y,miss_y,miss_y,
+         miss_my,miss_my,miss_my,miss_my,
+         k,k,k,k),byrow=T,29,4)
 }
 
 #parameter set up
@@ -320,14 +330,23 @@ b_t<-1
 b_x<-1
 b_mt<-0
 sd_y<-1
-c_0<-0.2
+c_0<-0.3
 c_m<-2
-c_t<-0.2
-c_x<-0.2
-d_0<-0.5
+c_t<-1
+c_x<-1
+d_0<-0.4
 d_rm<-1
-d_t<-0.2
-d_x<-0.2
+d_t<-1
+d_x<-1
+
+#Monte Carlo approximation of the true effect
+set.seed(123)
+n_mc<-10000
+x_s<-rnorm(n_mc,u_x,sd_x)
+TIE<-int11(x_s,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)-int10(x_s,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x) #NIE
+PDE<-int10(x_s,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)-int00(x_s,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x) #NDE
+PIE<-int01(x_s,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)-int00(x_s,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)
+TDE<-int11(x_s,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)-int01(x_s,b_0,b_m,b_t,b_mt,b_x,a_0,a_t,a_x)
 
 #time start
 start <- Sys.time()
@@ -338,9 +357,10 @@ save <- mclapply(1:runs, func, mc.cores = 8, mc.set.seed = TRUE)
 end <- Sys.time()
 #time end
 timediff <- as.numeric(difftime(end, start, units="hours"))
-write.xlsx(timediff,'/Users/sushi5824907/Desktop/Mediation/JASA/Simulation_v2/Compute_time(hours).xlsx',
+write.xlsx(timediff,'/Users/sushi5824907/Desktop/Mediation/JASA/Simulation2/Compute_time(hours).xlsx',
            row.names = FALSE,sheetName="BMCY_II(0)",append=TRUE)
 
-write.xlsx(save,'/Users/sushi5824907/Desktop/Mediation/JASA/Simulation_v2/BMCY_II(0).xlsx',row.names = FALSE)
+write.xlsx(save,'/Users/sushi5824907/Desktop/Mediation/JASA/Simulation2/BMCY_II(0).xlsx',row.names = FALSE)
+
 
 

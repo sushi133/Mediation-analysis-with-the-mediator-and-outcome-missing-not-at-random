@@ -21,16 +21,16 @@ t_m<-m
 t_y<-y
 m[R_m==0] <- NA
 y[R_y==0] <- NA
-dat<-as.data.frame(cbind(t,m,x,y,R_m,t_m,R_y,t_y))
-miss_m<-dplyr::count(dat[which(dat$R_m==0),])/N
-miss_y<-dplyr::count(dat[which(dat$R_y==0),])/N
-miss_my<-dplyr::count(dat[which(dat$R_m==0 & dat$R_y==0),])/N
+data<-as.data.frame(cbind(t,m,x,y,R_m,t_m,R_y,t_y))
+miss_m<-dplyr::count(data[which(data$R_m==0),])/N
+miss_y<-dplyr::count(data[which(data$R_y==0),])/N
+miss_my<-dplyr::count(data[which(data$R_m==0 & data$R_y==0),])/N
   
 #oracle
-m1<-lm(t_y~t_m+t+t_m*t+x,data=dat)
-m2<-lm(t_m~t+x,data=dat)
-m3<-glm(R_m~t_m+t+x,family=binomial(link='logit'),data=dat)
-m4<-glm(R_y~t_m+t+x,family=binomial(link='logit'),data=dat)
+m1<-lm(t_y~t_m+t+t_m*t+x,data=data)
+m2<-lm(t_m~t+x,data=data)
+m3<-glm(R_m~t_m+t+x,family=binomial(link='logit'),data=data)
+m4<-glm(R_y~t_m+t+x,family=binomial(link='logit'),data=data)
 tb_0<-m1$coef[1]
 tb_m<-m1$coef[2]
 tb_t<-m1$coef[3]
@@ -51,8 +51,8 @@ td_t<-m4$coef[3]
 td_x<-m4$coef[4]
   
 #complete case analysis
-ccm1<-lm(y~m+t+m*t+x,data=dat,subset=(R_m==1 & R_y==1))
-ccm2<-lm(m~t+x,data=dat,subset=(R_m==1 & R_y==1))
+ccm1<-lm(y~m+t+m*t+x,data=data,subset=(R_m==1 & R_y==1))
+ccm2<-lm(m~t+x,data=data,subset=(R_m==1 & R_y==1))
 ccb_0<-ccm1$coef[1]
 ccb_m<-ccm1$coef[2]
 ccb_t<-ccm1$coef[3]
@@ -72,12 +72,11 @@ ccd_m<-NA
 ccd_t<-NA
 ccd_x<-NA 
   
-#generate initial parameters for EM algorithm
-dat_mi<-subset(dat, select = c(y,m,t,x,R_y,R_m))
-imp <- mice(dat_mi, print = F)
+#mice for MAR
+dat_mi<-subset(data, select = c(y,m,t,x,R_y,R_m))
 #define predictor
-pred <- imp$predictorMatrix
-pred[c('m'), c('y','R_y','R_m')] <- 0
+pred <- mice(dat_mi, print = F)$predictorMatrix
+pred[c('m'), c('R_y','R_m')] <- 0
 pred[c('y'), c('R_y','R_m')] <- 0
 imp <- mice(dat_mi, m = 5, pred = pred, print=F, seed=123)
 mim1<-summary(pool(with(imp, lm(y~m+t+m*t+x))))
@@ -89,9 +88,23 @@ mib_m<-mim1$estimate[2]
 mib_t<-mim1$estimate[3]
 mib_x<-mim1$estimate[4]
 mib_mt<-mim1$estimate[5]
+#pooled residual standard deviation
+sigma <- list()
+for (i in 1:5) {
+  imputed <- complete(imp, i)
+  sigma[[i]] <- summary(lm(y~m+t+m*t+x, data = imputed))$sigma
+}
+misd_y<-mean(unlist(sigma))
 mia_0<-mim2$estimate[1]
 mia_t<-mim2$estimate[2]
 mia_x<-mim2$estimate[3]  
+#pooled residual standard deviation
+sigma <- list()
+for (i in 1:5) {
+  imputed <- complete(imp, i)
+  sigma[[i]] <- summary(lm(m~t+x, data = imputed))$sigma
+}
+misd_m<-mean(unlist(sigma)) 
 mic_0<-mim3$estimate[1]
 mic_m<-mim3$estimate[2]
 mic_t<-mim3$estimate[3]
@@ -103,18 +116,18 @@ mid_x<-mim4$estimate[4]
   
 #EM
 #fractional imputation for continuous var
-dat0<-subset(dat,R_m==1 & R_y==1)
+dat0<-subset(data,R_m==1 & R_y==1)
 dat0$seq<-0
 #missing m
-dat1<-subset(dat,R_m==0 & R_y==1)
+dat1<-subset(data,R_m==0 & R_y==1)
 dat1$seq<-1:nrow(dat1)
 dat1<-data.frame(lapply(dat1, rep, sample))
 dat1$m<-rnorm(as.numeric(count(dat1)),cca_0+cca_t*dat1$t+cca_x*dat1$x,psd_m)
 #missing y
-dat2<-subset(dat,R_m==1 & R_y==0)
+dat2<-subset(data,R_m==1 & R_y==0)
 dat2$seq<-0
 #missing m and y
-dat3<-subset(dat,R_m==0 & R_y==0)
+dat3<-subset(data,R_m==0 & R_y==0)
 dat3$seq<-1:nrow(dat3)
 dat3<-data.frame(lapply(dat3, rep, sample))
 dat3$m<-rnorm(as.numeric(count(dat3)),cca_0+cca_t*dat3$t+cca_x*dat3$x,psd_m)
@@ -220,46 +233,55 @@ while (sum(abs(Q[[k]]-Q[[k-1]]))/sum(Q[[k-1]])>=1e-5) {
 }
   
 tTIE<-ta_t*(tb_m+tb_mt)
-tPDE<-tb_t+tb_mt*ta_0
+tPDE<-tb_t+tb_mt*(ta_0+ta_x*mean(x))
 tPIE<-ta_t*tb_m
-tTDE<-tb_t+tb_mt*(ta_0+ta_t)
-  
+tTDE<-tb_t+tb_mt*(ta_0+ta_t+ta_x*mean(x))
+
 ccTIE<-cca_t*(ccb_m+ccb_mt)
-ccPDE<-ccb_t+ccb_mt*cca_0
+ccPDE<-ccb_t+ccb_mt*(cca_0+cca_x*mean(x))
 ccPIE<-cca_t*ccb_m
-ccTDE<-ccb_t+ccb_mt*(cca_0+cca_t)
-  
+ccTDE<-ccb_t+ccb_mt*(cca_0+cca_t+cca_x*mean(x))
+
+miTIE<-mia_t*(mib_m+mib_mt)
+miPDE<-mib_t+mib_mt*(mia_0+mia_x*mean(x))
+miPIE<-mia_t*mib_m
+miTDE<-mib_t+mib_mt*(mia_0+mia_t+mia_x*mean(x))
+
 emTIE<-ema_t*(emb_m+emb_mt)
-emPDE<-emb_t+emb_mt*ema_0
+emPDE<-emb_t+emb_mt*(ema_0+ema_x*mean(x))
 emPIE<-ema_t*emb_m
-emTDE<-emb_t+emb_mt*(ema_0+ema_t)
+emTDE<-emb_t+emb_mt*(ema_0+ema_t+ema_x*mean(x))
   
-matrix(c(ta_0,cca_0,ema_0,
-         ta_t,cca_t,ema_t,
-         ta_x,cca_x,ema_x,
-         tsd_m,ccsd_m,emsd_m,
-         tb_0,ccb_0,emb_0,
-         tb_m,ccb_m,emb_m,
-         tb_t,ccb_t,emb_t,
-         tb_x,ccb_x,emb_x,
-         tb_mt,ccb_mt,emb_mt,
-         tsd_y,ccsd_y,emsd_y,
-         tc_0,ccc_0,emc_0,
-         tc_m,ccc_m,emc_m,
-         tc_t,ccc_t,emc_t,
-         tc_x,ccc_x,emc_x,
-         td_0,ccd_0,emd_0,
-         td_m,ccd_m,emd_m,
-         td_t,ccd_t,emd_t,
-         td_x,ccd_x,emd_x,
-         (tTIE-TIE)/PDE,(ccTIE-TIE)/PDE,(emTIE-TIE)/PDE,
-         (tPDE-PDE)/PDE,(ccPDE-PDE)/PDE,(emPDE-PDE)/PDE,
-         (tPIE-PIE)/TDE,(ccPIE-PIE)/TDE,(emPIE-PIE)/TDE,
-         (tTDE-TDE)/TDE,(ccTDE-TDE)/TDE,(emTDE-TDE)/TDE,
-         miss_m,miss_m,miss_m,
-         miss_y,miss_y,miss_y,
-         miss_my,miss_my,miss_my,
-         k,k,k),byrow=T,26,3)
+matrix(c(ta_0,cca_0,mia_0,ema_0,
+         ta_t,cca_t,mia_t,ema_t,
+         ta_x,cca_x,mia_x,ema_x,
+         tsd_m,ccsd_m,misd_m,emsd_m,
+         tb_0,ccb_0,mib_0,emb_0,
+         tb_m,ccb_m,mib_m,emb_m,
+         tb_t,ccb_t,mib_t,emb_t,
+         tb_x,ccb_x,mib_x,emb_x,
+         tb_mt,ccb_mt,mib_mt,emb_mt,
+         tsd_y,ccsd_y,misd_y,emsd_y,
+         tc_0,ccc_0,mic_0,emc_0,
+         tc_m,ccc_m,mic_m,emc_m,
+         tc_t,ccc_t,mic_t,emc_t,
+         tc_x,ccc_x,mic_x,emc_x,
+         td_0,ccd_0,mid_0,emd_0,
+         td_m,ccd_m,mid_m,emd_m,
+         td_t,ccd_t,mid_t,emd_t,
+         td_x,ccd_x,mid_x,emd_x,
+         tTIE,ccTIE,miTIE,emTIE,
+         tPDE,ccPDE,miPDE,emPDE,
+         tPIE,ccPIE,miPIE,emPIE,
+         tTDE,ccTDE,miTDE,emTDE,
+         (tTIE-TIE)/PDE,(ccTIE-TIE)/PDE,(miTIE-TIE)/PDE,(emTIE-TIE)/PDE,
+         (tPDE-PDE)/PDE,(ccPDE-PDE)/PDE,(miPDE-PDE)/PDE,(emPDE-PDE)/PDE,
+         (tPIE-PIE)/TDE,(ccPIE-PIE)/TDE,(miPIE-PIE)/TDE,(emPIE-PIE)/TDE,
+         (tTDE-TDE)/TDE,(ccTDE-TDE)/TDE,(miTDE-TDE)/TDE,(emTDE-TDE)/TDE,
+         miss_m,miss_m,miss_m,miss_m,
+         miss_y,miss_y,miss_y,miss_y,
+         miss_my,miss_my,miss_my,miss_my,
+         k,k,k,k),byrow=T,30,4)
 }
 
 #parameter set up
@@ -277,19 +299,19 @@ b_t<-1
 b_x<-1
 b_mt<-0
 sd_y<-1
-c_0<-1.2
+c_0<-1.4
 c_m<-1
-c_t<-0.2
-c_x<-0.2
-d_0<-1.2
+c_t<-1
+c_x<-1
+d_0<-1.4
 d_m<-1
-d_t<-0.2
-d_x<-0.2
+d_t<-1
+d_x<-1
 sample<-100
 psd_m<-1
 
-TIE<-a_t*(b_m+b_mt)
-PDE<-b_t+b_mt*a_0
+TIE<-a_t*(b_m+b_mt) #NIE
+PDE<-b_t+b_mt*a_0   #NDE
 PIE<-a_t*b_m
 TDE<-b_t+b_mt*(a_0+a_t)
 
@@ -302,8 +324,7 @@ save <- mclapply(1:runs, func, mc.cores = 8, mc.set.seed = TRUE)
 end <- Sys.time()
 #time end
 timediff <- as.numeric(difftime(end, start, units="hours"))
-write.xlsx(timediff,'/Users/sushi5824907/Desktop/Mediation/JASA/Simulation_v2/Compute_time(hours).xlsx',
+write.xlsx(timediff,'/Users/sushi5824907/Desktop/Mediation/JASA/Simulation2/Compute_time(hours).xlsx',
            row.names = FALSE,sheetName="CMY_IV(0)",append=TRUE)
 
-write.xlsx(save,'/Users/sushi5824907/Desktop/Mediation/JASA/Simulation_v2/CMY_IV(0).xlsx',row.names = FALSE)
-
+write.xlsx(save,'/Users/sushi5824907/Desktop/Mediation/JASA/Simulation2/CMY_IV(0).xlsx',row.names = FALSE)
