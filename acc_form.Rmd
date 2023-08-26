@@ -128,8 +128,8 @@ Check all that apply
     - [ ] Python
     - [ ] Matlab
     - [ ] Other: 
-- [x] Package
-    - [x] R
+- [ ] Package
+    - [ ] R
     - [ ] Python
     - [ ] MATLAB toolbox
     - [ ] Other: 
@@ -152,7 +152,7 @@ R 4.1.3
 
 #### Libraries and dependencies used by the code
 
-mice (3.14.0), dplyr (1.0.8), parallel (4.1.3), xlsx (0.6.5), ggplot2 (3.3.5), nnet (7.3-17), miscF (0.1-5), readstata13 (0.10.0), boot (1.3-28), MASS(7.3-55), scales (1.2.1) 
+mice (3.14.0), dplyr (1.0.8), parallel (4.1.3), xlsx (0.6.5), ggplot2 (3.3.5), nnet (7.3-17), miscF (0.1-5), boot (1.3-28), MASS(7.3-55), scales (1.2.1) 
 
 <!--
 Include version numbers (e.g., version numbers for any R or Python packages used)
@@ -215,8 +215,8 @@ The workflow is available:
 <!--
 Check all that apply, and in the case of a Git repository include unique identifier, such as specific commit ID, branch, release, or tag.
 -->
-- [ ] As part of the paper’s supplementary material.
-- [x] In this Git repository:
+- [x] As part of the paper’s supplementary material.
+- [ ] In this Git repository:
 - [ ] Other (please specify):
 
 <!--
