@@ -14,41 +14,37 @@ Data is available.
 
 ### Data 
 
-Source data: mpr_jobcorps_team5_nrw_upd_r_nositeid.dta, key_vars.dta
-
-Analysis data: Jobcorpdata.csv
+Jobcorpdata.csv 
 
 ### Code
-
-Analysis data: Jobcrop.R
 
 Other information: Addtional_Information.R
 
 Table 1-4: Table.R
 
-Data analysis results from Gamma and Lognormal model under MNAR Assumptions 4/6/8: 
+Data analysis results from Gamma and Lognormal model under MNAR Assumptions 2 to 4: 
 
 II_Job_Gamma.R, II_Job_Gamma_B.R, III_Job_Gamma.R, III_Job_Gamma_B.R, IV_Job_Gamma.R, IV_Job_Gamma_B.R, II_Job_Lnorm.R, II_Job_Lnorm_B.R, III_Job_Lnorm.R, III_Job_Lnorm_B.R, IV_Job_Lnorm.R, IV_Job_Lnorm_B.R
 
-Sensitivity analysis results from Gamma model under MNAR Assumptions 4+8: 
+Sensitivity analysis results from Gamma model under MNAR Assumptions 2+4: 
 
 II_Job_Gamma_S_IV.R, II_Job_Gamma_S_B_IV.R
 
-Sensitivity analysis results from Gamma model under MNAR Assumptions 4+6+8: 
+Sensitivity analysis results from Gamma model under MNAR Assumptions 2+3+4: 
 
 II_Job_Gamma_S_III+IV.R, II_Job_Gamma_S_B_III+IV.R
 
 ### Output
 
-Data analysis results from Gamma and Lognormal model under MNAR Assumptions 4/6/8: 
+Data analysis results from Gamma and Lognormal model under MNAR Assumptions 2 to 4: 
 
-Simulation results (.xlsx) with the same filenames as the corresponding codes. 
+Data analysis results (.xlsx) with the same filenames as the corresponding codes. 
 
-Sensitivity analysis results from Gamma model under MNAR Assumptions 4+8:
+Sensitivity analysis results from Gamma model under MNAR Assumptions 2+4:
 
 II_Job_Gamma_S_0_-2.xlsx, II_Job_Gamma_S_B_0_-2.xlsx, II_Job_Gamma_S_0_0.xlsx, II_Job_Gamma_S_B_0_0.xlsx, II_Job_Gamma_S_0_2.xlsx, II_Job_Gamma_S_B_0_2.xlsx
 
-Sensitivity analysis results from Gamma model under MNAR Assumptions 4+6+8: 
+Sensitivity analysis results from Gamma model under MNAR Assumptions 2+3+4: 
 
 II_Job_Gamma_S_-2_-2.xlsx, II_Job_Gamma_S_B_-2_-2.xlsx, II_Job_Gamma_S_-2_0.xlsx, II_Job_Gamma_S_B_-2_0.xlsx, II_Job_Gamma_S_-2_2.xlsx, II_Job_Gamma_S_B_-2_2.xlsx, II_Job_Gamma_S_2_-2.xlsx, II_Job_Gamma_S_B_2_-2.xlsx, II_Job_Gamma_S_2_0.xlsx, II_Job_Gamma_S_B_2_0.xlsx, II_Job_Gamma_S_2_2.xlsx, II_Job_Gamma_S_B_2_2.xlsx
 
@@ -84,5 +80,5 @@ Simulation results (.xlsx) with the same filenames as the corresponding codes.
 
 ## Simulation2 (alternative approach)
 
-The outcome model is identifiable using the complete cases under MNAR Assumption 2, 4 and 8. Therefore, an alternative approach for those scenarios is to estimate the outcome model first using the complete cases, then estimate the parameters in other models through the Expectation-Maximization algorithm by plugging in the estimated outcome model. We tried those two slightly different approaches to our simulation settings, both provided consistent results, with the alternative approach enjoying higher computation efficiency as expected. However, under MNAR Assumption 6, the alternative approach does not work because the outcome model can not be identified by the complete cases. So, the R code under MNAR Assumption 6 remain the same.
+The outcome model is identifiable using the complete cases under MNAR Assumption 1, 2 and 4. Therefore, an alternative approach for those scenarios is to estimate the outcome model first using the complete cases, then estimate the parameters in other models through the Expectation-Maximization algorithm by plugging in the estimated outcome model. We tried those two slightly different approaches to our simulation settings, both provided consistent results, with the alternative approach enjoying higher computation efficiency as expected. However, under MNAR Assumption 3, the alternative approach does not work because the outcome model can not be identified by the complete cases. So, the R code under MNAR Assumption 3 remain the same.
 
