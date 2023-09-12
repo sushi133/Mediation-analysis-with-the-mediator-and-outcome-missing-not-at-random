@@ -58,9 +58,11 @@ If the data are publicly available, see the *Publicly available data* section. O
 
 - [ ] Data are available online at:
 
-- [x] Data are available as part of the paper’s supplementary material.
+- [ ] Data are available as part of the paper’s supplementary material.
 
-- [ ] Data are publicly available by request, following the process described here:
+- [x] Data are publicly available by request, following the process described here:
+
+Please contact yangfan1987@tsinghua.edu.cn for the data we used in this paper.
 
 - [ ] Data are or will be made available through some other mechanism, described here:
 
