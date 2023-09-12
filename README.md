@@ -10,11 +10,9 @@ The data describes eligible applicants in the mid-1990s who lived in the areas s
 
 ### Availability
 
-Data is available.
+Data are publicly available by request.
 
-### Data 
-
-Jobcorpdata.csv 
+Please contact yangfan1987@tsinghua.edu.cn for the data we used in this paper.
 
 ### Code
 
