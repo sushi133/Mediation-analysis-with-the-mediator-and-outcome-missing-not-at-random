@@ -4,7 +4,7 @@ Platform: x86_64-apple-darwin17.0 (64-bit)
 
 R packages: mice (3.14.0), dplyr (1.0.8), parallel (4.1.3), xlsx (0.6.5), ggplot2 (3.3.5), nnet (7.3-17), miscF (0.1-5)
 
-The following code files generate estimates of NIE and NDE from simulated datasets for different scenarios. The estimation is performed using complete case analysis, multiple imputation, and the EM algorithm under different MNAR Assumptions. The output folder includes the corresponding output for each code file.
+The following code files generate parameter estimates from simulated datasets for various scenarios. Estimations are conducted using complete case analysis, multiple imputation, and the EM algorithm under different MNAR assumptions. The output folder contains the corresponding output for each code file.
 
 M is not independent of Y:
 
