@@ -57,7 +57,7 @@ The following code files generate parameter estimates using a two-part Gamma mod
   
 The sensitivity parameters describe the impact of the outcome on missingness of the outcome, varying between -2, 0, and 2. Additionally, the impact of the mediator on missingness of the outcome is varied across the same values: -2, 0, and 2.
 
-  Compute point estimates and log-likelihoods based on the original data:
+  Compute point estimates based on the original data:
   
     The sensitivity parameters are -2 and -2: II_Job_Gamma_S_III+IV.R (II_Job_Gamma_S_-2_-2.xlsx)
     
