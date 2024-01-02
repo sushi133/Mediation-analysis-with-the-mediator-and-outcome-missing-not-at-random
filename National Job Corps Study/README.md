@@ -54,25 +54,7 @@ Note: Compute_time(hours).xlsx records the computation time for each code file.
 Sensitivity analysis:
 
 The code files generate estimates of parameters using two-part Gamma model for the outcome. The estimation is performed using the EM algorithm under MNAR Assumption 2 with different sensitivity parameters. The output folder includes the corresponding output for each code file.
-
-The sensitivity parameter describing the impact of the mediator to missingness of the outcome to vary among -2, 0 and 2: 
-
-  Point estimates based on original data:
   
-    The sensitivity parameter is -2: II_Job_Gamma_S_IV.R (II_Job_Gamma_S_0_-2.xlsx)
-    
-    The sensitivity parameter is 0: II_Job_Gamma_S_IV.R (II_Job_Gamma_S_0_0.xlsx)
-    
-    The sensitivity parameter is 2: II_Job_Gamma_S_IV.R (II_Job_Gamma_S_0_2.xlsx)
-    
-  Confidence intervals based on bootstrap samples:
-  
-    The sensitivity parameter is -2: II_Job_Gamma_S_B_IV.R (II_Job_Gamma_S_B_0_-2_Param.xlsx, II_Job_Gamma_S_B_0_-2.xlsx)
-    
-    The sensitivity parameter is 0: II_Job_Gamma_S_B_IV.R (II_Job_Gamma_S_B_0_0_Param.xlsx, II_Job_Gamma_S_B_0_0.xlsx)
-    
-    The sensitivity parameter is 2: II_Job_Gamma_S_B_IV.R (II_Job_Gamma_S_B_0_2_Param.xlsx, II_Job_Gamma_S_B_0_2.xlsx) 
-
 The sensitivity parameters describing the impact of the outcome to missingness of the outcome to vary among -2, 0 and 2, and the impact of the mediator to missingness of the outcome to vary among -2, 0 and 2:
 
   Point estimates based on original data:
@@ -82,6 +64,12 @@ The sensitivity parameters describing the impact of the outcome to missingness o
     The sensitivity parameters are -2 and 0: II_Job_Gamma_S_III+IV.R (II_Job_Gamma_S_-2_0.xlsx)
     
     The sensitivity parameters are -2 and 2: II_Job_Gamma_S_III+IV.R (II_Job_Gamma_S_-2_2.xlsx)
+    
+    The sensitivity parameters are 0 and -2: II_Job_Gamma_S_IV.R (II_Job_Gamma_S_0_-2.xlsx)
+    
+    The sensitivity parameters are 0 and 0: II_Job_Gamma_S_IV.R (II_Job_Gamma_S_0_0.xlsx)
+    
+    The sensitivity parameters are 0 and 2: II_Job_Gamma_S_IV.R (II_Job_Gamma_S_0_2.xlsx)
     
     The sensitivity parameters are 2 and -2: II_Job_Gamma_S_III+IV.R (II_Job_Gamma_S_2_-2.xlsx)
     
@@ -96,6 +84,12 @@ The sensitivity parameters describing the impact of the outcome to missingness o
     The sensitivity parameters are -2 and 0: II_Job_Gamma_S_B_III+IV.R (II_Job_Gamma_S_B_-2_0_Param.xlsx, II_Job_Gamma_S_B_-2_0.xlsx)
     
     The sensitivity parameters are -2 and 2: II_Job_Gamma_S_B_III+IV.R (II_Job_Gamma_S_B_-2_2_Param.xlsx, II_Job_Gamma_S_B_-2_2.xlsx)
+    
+    The sensitivity parameters are 0 and -2: II_Job_Gamma_S_B_IV.R (II_Job_Gamma_S_B_0_-2_Param.xlsx, II_Job_Gamma_S_B_0_-2.xlsx)
+    
+    The sensitivity parameters are 0 and 0: II_Job_Gamma_S_B_IV.R (II_Job_Gamma_S_B_0_0_Param.xlsx, II_Job_Gamma_S_B_0_0.xlsx)
+    
+    The sensitivity parameters are 0 and 2: II_Job_Gamma_S_B_IV.R (II_Job_Gamma_S_B_0_2_Param.xlsx, II_Job_Gamma_S_B_0_2.xlsx) 
     
     The sensitivity parameters are 2 and -2: II_Job_Gamma_S_B_III+IV.R (II_Job_Gamma_S_B_2_-2_Param.xlsx, II_Job_Gamma_S_B_2_-2.xlsx)
     
