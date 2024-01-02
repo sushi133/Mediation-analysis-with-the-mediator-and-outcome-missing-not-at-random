@@ -4,7 +4,7 @@
 
 ## National Job Corps Study
 
-The National Job Corps Study folder contains all the data analysis results in the manuscript.
+The National Job Corps Study folder includes all the code files and data analysis results in the manuscript.
 
 ### Abstract 
 
@@ -18,11 +18,10 @@ Please contact yangfan1987@tsinghua.edu.cn for the data we used in this paper.
 
 ## Simulation
 
-The Simulation folder encompasses all the simulation results presented in the manuscript.
+The Simulation folder encompasses both the code files and the simulation results presented in the manuscript.
 
 ## Simulation2
 
-The Simulation2 folder comprises all the simulation results obtained using the alternative approach described in the manuscript.
-
+The Simulation2 folder includes all the code files and simulation results obtained using the alternative approach described in the manuscript.
 
 
