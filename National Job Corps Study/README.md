@@ -55,7 +55,7 @@ Sensitivity analysis:
 
 The following code files generate parameter estimates using a two-part Gamma model for the outcome. Estimations are performed using the EM algorithm under MNAR Assumption 2 with different sensitivity parameters. The output folder includes the corresponding results for each code file.
   
-The sensitivity parameters describe the impact of the outcome on missingness, varying between -2, 0, and 2. Additionally, the impact of the mediator on missingness is varied across the same values: -2, 0, and 2.
+The sensitivity parameters describe the impact of the outcome on missingness of the outcome, varying between -2, 0, and 2. Additionally, the impact of the mediator on missingness of the outcome is varied across the same values: -2, 0, and 2.
 
   Compute point estimates and log-likelihoods based on the original data:
   
