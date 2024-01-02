@@ -98,4 +98,4 @@ M is independent of Y:
     
 Note: Compute_time(hours).xlsx records the computation time for each code file.
 
-The code file Figure.R provides simulation results in Figure 3, Figure S9, Figure S10, Figure S11 and Figure S12.
+The code file Figure.R generates simulation results for Figure 3, Figure S9, Figure S10, Figure S11, and Figure S12.
