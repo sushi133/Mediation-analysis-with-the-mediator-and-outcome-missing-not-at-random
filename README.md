@@ -18,7 +18,7 @@ Please contact yangfan1987@tsinghua.edu.cn for the data we used in this paper.
 
 ## Simulation
 
-The Simulation folder encompasses both the code files and the simulation results presented in the manuscript.
+The Simulation folder includes all the code files and simulation results presented in the manuscript.
 
 ## Simulation2
 
