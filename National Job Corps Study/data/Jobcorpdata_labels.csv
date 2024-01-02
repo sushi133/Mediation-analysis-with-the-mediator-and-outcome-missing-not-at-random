@@ -1,0 +1,13 @@
+var_name,var_type,variable label
+Y,numeric,(outcome) weekly earnings in year 4
+M,categorical,(mediator) 1: an education credential or vocational certificate was obtained (30 mth follow up); 0: otherwise
+Z,categorical,(treatment assignment) 1: program group; 0: control group
+x1,categorical,(sex) 1: female; 0: male
+x2,categorical,(age at application) 0: 16-17; 1: 18-19; 2: 20-24
+x3,categorical,(race) 0: white; 1: black; 2: hispanic; 3: others
+x4,categorical,(had children at baseline) 1: had children at baseline; 0: otherwise
+x5,categorical,(arrest status at baseline) 0: have not been arrested; 1: have been arrested; 2: missing
+x6,categorical,(education level at baseline) 1: no high school diploma / GED; 2: GED certificates; 3: high school diploma; 4: missing
+x7,categorical,(earnings in year prior to random assignment) 0: 0; 1: 0-1000; 2: 1000-5000; 3: 5000-10000; 4: >=10000; 5: missing
+R_y,categorical,(missing indicator for outcome) 1: observed; 0: missing
+R_m,categorical,(missing indicator for mediator) 1: observed; 0: missing
