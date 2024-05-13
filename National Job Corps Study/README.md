@@ -11,53 +11,53 @@ Pre-processing of the National Job Corps Study data in all the code files:
 
 Data analysis:
 
-The following code files generate parameter estimates and log-likelihoods. Estimations are conducted using complete case analysis, multiple imputation, and the EM algorithm under different MNAR assumptions. The output folder contains the corresponding results for each code file.
+The following code files generate parameter estimates. Estimations are conducted using complete case analysis, multiple imputation, and the EM algorithm under different MNAR assumptions. The output folder contains the corresponding results for each code file.
 
 Two-part Gamma model for the outcome:
 
-  Compute point estimates and log-likelihoods based on the original data:
+  Compute parameter estimates and log-likelihoods based on the original data:
   
-    MNAR Assumption 2: II_Job_Gamma.R (II_Job_Gamma.xlsx)
+    Assumption 2: II_Job_Gamma.R (II_Job_Gamma.xlsx)
     
-    MNAR Assumption 3: III_Job_Gamma.R (III_Job_Gamma.xlsx)
+    Assumption 3: III_Job_Gamma.R (III_Job_Gamma.xlsx)
     
-    MNAR Assumption 4: IV_Job_Gamma.R (IV_Job_Gamma.xlsx)
+    Assumption 4: IV_Job_Gamma.R (IV_Job_Gamma.xlsx)
     
-  Calculate confidence intervals based on bootstrap samples:
+  Calculate parameter estimates and confidence intervals based on bootstrap samples:
   
-    MNAR Assumption 2: II_Job_Gamma_B.R (II_Job_Gamma_B_Param.xlsx, II_Job_Gamma_B.xlsx)
+    Assumption 2: II_Job_Gamma_B.R (II_Job_Gamma_B_Param.xlsx, II_Job_Gamma_B.xlsx)
     
-    MNAR Assumption 3: III_Job_Gamma_B.R (III_Job_Gamma_B_Param.xlsx, III_Job_Gamma_B.xlsx)
+    Assumption 3: III_Job_Gamma_B.R (III_Job_Gamma_B_Param.xlsx, III_Job_Gamma_B.xlsx)
     
-    MNAR Assumption 4: IV_Job_Gamma_B.R (IV_Job_Gamma_B_Param.xlsx, IV_Job_Gamma_B.xlsx)
+    Assumption 4: IV_Job_Gamma_B.R (IV_Job_Gamma_B_Param.xlsx, IV_Job_Gamma_B.xlsx)
     
 Two-part Log-normal model for the outcome:
 
-  Compute point estimates and log-likelihoods based on the original data:
+  Compute parameter estimates and log-likelihoods based on the original data:
   
-    MNAR Assumption 2: II_Job_Lnorm.R (II_Job_Lnorm.xlsx)
+    Assumption 2: II_Job_Lnorm.R (II_Job_Lnorm.xlsx)
     
-    MNAR Assumption 3: III_Job_Lnorm.R (III_Job_Lnorm.xlsx)
+    Assumption 3: III_Job_Lnorm.R (III_Job_Lnorm.xlsx)
     
-    MNAR Assumption 4: IV_Job_Lnorm.R (IV_Job_Lnorm.xlsx)
+    Assumption 4: IV_Job_Lnorm.R (IV_Job_Lnorm.xlsx)
     
-  Calculate confidence intervals based on bootstrap samples:
+  Calculate parameter estimates and confidence intervals based on bootstrap samples:
   
-    MNAR Assumption 2: II_Job_Lnorm_B.R (II_Job_Lnorm_B_Param.xlsx, II_Job_Lnorm_B.xlsx)
+    Assumption 2: II_Job_Lnorm_B.R (II_Job_Lnorm_B_Param.xlsx, II_Job_Lnorm_B.xlsx)
     
-    MNAR Assumption 3: III_Job_Lnorm_B.R (III_Job_Lnorm_B_Param.xlsx, III_Job_Lnorm_B.xlsx)
+    Assumption 3: III_Job_Lnorm_B.R (III_Job_Lnorm_B_Param.xlsx, III_Job_Lnorm_B.xlsx)
     
-    MNAR Assumption 4: IV_Job_Lnorm_B.R (IV_Job_Lnorm_B_Param.xlsx, IV_Job_Lnorm_B.xlsx)
+    Assumption 4: IV_Job_Lnorm_B.R (IV_Job_Lnorm_B_Param.xlsx, IV_Job_Lnorm_B.xlsx)
   
 Note: Compute_time(hours).xlsx records the computation time for each code file.
 
 Sensitivity analysis:
 
-The following code files generate parameter estimates using a two-part Gamma model for the outcome. Estimations are performed using the EM algorithm under MNAR Assumption 2 with different sensitivity parameters. The output folder includes the corresponding results for each code file.
+The following code files generate parameter estimates using a two-part Gamma model for the outcome. Estimations are performed using the EM algorithm under Assumption 2 with different sensitivity parameters. The output folder includes the corresponding results for each code file.
   
-The sensitivity parameters describe the impact of the outcome on missingness of the outcome, varying between -2, 0, and 2. Additionally, the impact of the mediator on missingness of the outcome is varied across the same values: -2, 0, and 2.
+The first sensitivity parameter describes the impact of the outcome on its missingness, ranging between -2, 0, and 2. The second sensitivity parameter defines the mediator's effect on the outcome's missingness, varying across the same values: -2, 0, and 2.
 
-  Compute point estimates based on the original data:
+  Compute parameter estimates based on the original data:
   
     The sensitivity parameters are -2 and -2: II_Job_Gamma_S_III+IV.R (II_Job_Gamma_S_-2_-2.xlsx)
     
@@ -77,7 +77,7 @@ The sensitivity parameters describe the impact of the outcome on missingness of 
     
     The sensitivity parameters are 2 and 2: II_Job_Gamma_S_III+IV.R (II_Job_Gamma_S_2_2.xlsx)
     
-  Calculate confidence intervals based on bootstrap samples:
+  Calculate parameter estimates and confidence intervals based on bootstrap samples:
   
     The sensitivity parameters are -2 and -2: II_Job_Gamma_S_B_III+IV.R (II_Job_Gamma_S_B_-2_-2_Param.xlsx, II_Job_Gamma_S_B_-2_-2.xlsx)
     

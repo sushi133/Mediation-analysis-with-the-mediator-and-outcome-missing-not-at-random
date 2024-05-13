@@ -542,7 +542,7 @@ while (sum(abs(Q[[k]]-Q[[k-1]]))/sum(Q[[k-1]])>=1e-5) {
   dat<-rbind(dat0,dat1,dat2,dat3)
   
   #update parameters
-  #I(Y>0) model can be identified by complete cases under MNAR assumption 2,3 and 5
+  #I(Y>0) model can be identified by complete cases under MNAR assumption 1,2 and 4
   emm11<-glm(I_Y~M+Z+M*Z+x1+x2+x3+x4+x5+x6+x7,family = binomial(link='logit'),weights=wt,data=dat,subset=(R_y==1 & R_m==1))
   #conditional on I(Y>0) and M, Y model can be identified by complete cases
   emm1<-glm(Y~M+Z+M*Z+x1+x2+x3+x4+x5+x6+x7,family = Gamma(link = "log"),weights=wt,data=dat,subset=(I_Y==1 & R_y==1 & R_m==1))
