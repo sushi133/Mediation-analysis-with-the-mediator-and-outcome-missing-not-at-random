@@ -2,7 +2,7 @@ library(xlsx)
 library(ggplot2)
 library(dplyr)
 
-#Figure S8
+#Figure 3
 
 #MNAR I
 BMY_I <- read.xlsx('/Users/sushi5824907/Desktop/Mediation/JASA/Simulation2/BMY_I.xlsx', 1)
