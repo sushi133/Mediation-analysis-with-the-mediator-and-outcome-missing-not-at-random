@@ -10,6 +10,6 @@ The Simulation folder includes all the code files and simulation results present
 
 ## Simulation2
 
-The Simulation2 folder includes all the code files and simulation results obtained using the alternative approach described in the manuscript.
+The Simulation2 folder includes all the code files and simulation results obtained using the alternative approach described in section S4 of the supplementary material.
 
 
